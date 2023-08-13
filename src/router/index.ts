@@ -6,6 +6,13 @@ import StudentsInfoServices from '@/services/StudentsInfoServices'
 import StudentCommentView from '@/views/student/StudentCommentView.vue'
 import StudentAdvisorView from '@/views/student/StudentAdvisorView.vue'
 import { useStudentStore } from '@/stores/student'
+import { storeToRefs } from 'pinia'
+import { commentStudent } from '@/stores/comment'
+import { commentStudentId } from '@/stores/comment_id'
+import TeacherListView from '../views/TeacherListView.vue'
+import TeacherDetailView from '../views/TeacherDetailView.vue'
+import { ref } from 'vue'
+
 import 'animate.css';
 
 const router = createRouter({
@@ -30,6 +37,15 @@ const router = createRouter({
           .then((response) => {
             // need to set up the data for the component
             studentStore.setStudent(response.data)
+            const keep_comm = ref([])
+            const commentStudents = commentStudent()
+            const commentStudent_Id = commentStudentId()
+            const { comment } = storeToRefs(commentStudents)
+            keep_comm.value = comment.value.filter(
+              (commentItem) => id === commentItem.id
+            );
+            console.log('Filtered comments:', keep_comm.value)
+            commentStudent_Id.setComment(keep_comm.value)
           })
           .catch((error) => {
             if (error.response && error.response.status === 404) {
@@ -77,7 +93,18 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
-    }
+    },
+    {
+      path: '/teacher',
+      name: 'teacher',
+      component: TeacherListView
+      },
+      {
+      path: '/teacher/:id',
+      name: 'teacher-detail',
+      component: TeacherDetailView,
+      props:true
+      }
   ]
 })
 
