@@ -1,6 +1,31 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { onMounted } from 'vue';
+import TeacherServices from "@/services/TeacherService";
+import { useTeacherAllStore } from "@/stores/all_teacher";
+import StudentService from '@/services/StudentsInfoServices'
+import { useStudentAllStore } from '@/stores/all_student'
+const studentStore_all = useStudentAllStore();
+const teacherStoreAll = useTeacherAllStore();
+
+onMounted(async () => {
+  try {
+    const response = await TeacherServices.getTeacher();
+    teacherStoreAll.setTeacherArray(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+})
+
+onMounted(async () => {
+  try {
+    const response = await StudentService.getStudent();
+    studentStore_all.setStudentArray(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+});
 
 </script>
 
