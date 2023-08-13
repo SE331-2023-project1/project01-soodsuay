@@ -4,7 +4,7 @@ import type{PropType} from 'vue'
 import type { Ref } from 'vue'
 import type { TeacherInfo } from '@/teacher'
 import { type studentInfo } from '@/student'
-import TeacherService from '@/services/TeacherSevice';
+import TeacherService from '@/services/TeacherService';
 const props =defineProps({
     student: {
         type: Object as PropType<studentInfo>,

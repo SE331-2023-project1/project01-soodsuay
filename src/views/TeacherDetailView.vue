@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import type { Ref } from 'vue'
 import type { TeacherInfo } from '@/teacher'
-import TeacherService from '@/services/TeacherSevice';
+import TeacherService from '@/services/TeacherService';
 const teacher = ref<TeacherInfo | null> (null)
 const props = defineProps({
     id: String
