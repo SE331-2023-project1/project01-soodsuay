@@ -13,11 +13,13 @@ defineProps({
 
             <div v-if="student">
                 <h1>{{ student.name }} {{ student.surname }} </h1>
+                <h2> nickname : {{ student.nickname }}</h2>
                 <h2>Courses :</h2>
                 <h2 v-for="course in student.course_list" :key="course.id"> ★ {{ course.course_name }}</h2>
+                <h2> ☏   {{  student.gmail  }}</h2>
                 <img :src="student.image" class="image" />
             </div>
-
+ 
 </template>
 
 <style scoped>
@@ -26,6 +28,9 @@ defineProps({
     height: 450px;
     align-items: center;
     border-radius: 15%;
+    margin-top: 3%;
+    border: 4px solid rgb(255, 250, 102);
+    
 }
 
 h1 {

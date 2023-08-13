@@ -5,6 +5,8 @@
             "name": "Thee",
             "surname":"Boonsermsuwong",
             "student_id" : 682115011,
+            "nickname" : "JUNG",
+            "gmail" : "jungtheeee@gmail.com",
             "image":"https://scontent.fbkk20-1.fna.fbcdn.net/v/t1.15752-9/364104105_3573736962915810_3333598707181833489_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeEcQ_gOA7RM5HRz97042sLK2NBi2Uo_exLY0GLZSj97EtAciuaNdxVY44xNSfSt96RVVTH6Pp1gpLwAi486zGrM&_nc_ohc=-_yvyRmdiX8AX9vXVEg&_nc_ht=scontent.fbkk20-1.fna&oh=03_AdQN2XoJ8BuNIT-SjCwGwcDiej3Y6BNkLzF6sIoLmMhnfQ&oe=64FF42B5",
             "course_list": [
                 { "course_id": 1, "course_name": "Dance Performance"},
@@ -20,6 +22,8 @@
             "name": "Chayanon",
             "surname":"Phakthin",
             "student_id" : 662115012,
+            "nickname" : "THAI",
+            "gmail" : "thaichayanon@gmail.com",
             "image":"https://scontent.fbkk20-1.fna.fbcdn.net/v/t1.15752-9/365947621_1332244341002143_3380036322040216802_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeGyM1R1iZOQP8gMvZXun19E9P4cMFJa6i30_hwwUlrqLRIBDBKpXidll7gNDnOJwmPW6833M9oaIQt-ZDZJlf7W&_nc_ohc=vpESw68Elj4AX9WLpuh&_nc_oc=AQnEny3Ln4mEa0xRuUDmDe5T_MY4riD7TBWhTpv6tOaL5zAYFkr6sU6h7i9Zlctl7U0&_nc_ht=scontent.fbkk20-1.fna&oh=03_AdTxJ21QmIhyi5sYxI5YUsHDi9p9i3LUfLKTx6-CS00dMw&oe=64FF45B7",
             "course_list": [
                 { "course_id": 1, "course_name": "Dance Performance"},
@@ -34,8 +38,10 @@
             "id": 3,
             "name": "Kris",
             "surname":"Kanchanatip",
+            "nickname" : "MARC",
             "image":"https://scontent.fbkk20-1.fna.fbcdn.net/v/t1.15752-9/365395112_709938917635474_540337560398309323_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeHCxeIzB4XYVNje0GnAZ_vvQWFL6nH5rwlBYUvqcfmvCYcqKA9FFsv6NmUjFq-izQA-H_UfIh3yiqFpK5HHED6V&_nc_ohc=lnrJ2lQZImQAX-p8ouk&_nc_ht=scontent.fbkk20-1.fna&oh=03_AdQEhI689NVcOzOLEUja62-mlCuwQUZ3m1Hf27q9OGLM7g&oe=64FF43F8",
             "student_id" : 642115015,
+            "gmail" : "marckriss@gmail.com",
             "course_list": [
                 { "course_id": 1, "course_name": "Dance Performance"},
                 { "course_id": 2, "course_name": "Vocals Course"}, 
@@ -48,8 +54,10 @@
             "id": 4,
             "name": "Wasupon",
             "surname":"Pornpananurak",
+            "nickname" : "PEEM",
             "image":"https://scontent.fbkk20-1.fna.fbcdn.net/v/t1.15752-9/363890169_224439180162569_279480224042157675_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeGMjNlbantt_0KuLOV-Gw-uh9MhUSO_HW2H0yFRI78dbUwM5ehTEg1lLeBy0Cw0UCpszATNXWITpV_L4gnl9FeJ&_nc_ohc=gaL-cc8Ya-UAX__u5BI&_nc_ht=scontent.fbkk20-1.fna&oh=03_AdTSlrdHkFeDvy-eZkVC8ZL2iZkl40v8HPKULaWr0IpezQ&oe=64FF6572",
             "student_id" : 682115018,
+            "gmail" : "peemwasupon@gmail.com",
             "course_list": [
                 { "course_id": 1, "course_name": "Dance Performance"},
                 { "course_id": 2, "course_name": "Vocals Course"}, 
@@ -62,8 +70,10 @@
             "id": 5,
             "name": "Nattakit",
             "surname":"Chaemdara",
+            "nickname" : "NEX",
             "image":"https://scontent.fbkk20-1.fna.fbcdn.net/v/t1.15752-9/364934211_2878503865625052_920468774438612192_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeElzLByIOxmhN0GgdjiQjCBPSCA8zKwpKs9IIDzMrCkqymtSIJvD-GK9Kt5na42VuucvtL77zmXgt246-OHJ1Vp&_nc_ohc=Vqu6j9P5FEEAX-O_SsJ&_nc_ht=scontent.fbkk20-1.fna&oh=03_AdQ-qqqRkqNAgZUaMpFtWN-sG1WyaGA6Zoe3i0Sq8u2YXw&oe=64FF351E",
             "student_id" : 662115019,
+            "gmail" : "nexnattakit@gmail.com",
             "course_list": [
                 { "course_id": 1, "course_name": "Dance Performance"},
                 { "course_id": 2, "course_name": "Vocals Course"}, 
@@ -76,8 +86,10 @@
             "id": 6,
             "name": "Tatchai",
             "surname":"Limpanyakul",
+            "nickname" : "PHU",
             "image":"https://scontent.fbkk20-1.fna.fbcdn.net/v/t1.15752-9/365764107_1316663075611026_6872234518762664805_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeFkexlvJdlUCpuH-CnZQBmvGPcL1QxLmXkY9wvVDEuZefBAmStaREBQFVuwIqNnYTp3Kv3LfE5KRkHY2htZDKNA&_nc_ohc=qNQvJUZebJwAX_Wb0MQ&_nc_ht=scontent.fbkk20-1.fna&oh=03_AdQtY25hnumFsGm666D8R6zAd07ykziy-SXidcIJEjpyxQ&oe=64FF48A4",
             "student_id" : 642115022,
+            "gmail" : "phutatchai@gmail.com",
             "course_list": [
                 { "course_id": 1, "course_name": "Dance Performance"},
                 { "course_id": 2, "course_name": "Vocals Course"}, 

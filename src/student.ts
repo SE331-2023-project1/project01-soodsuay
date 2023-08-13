@@ -11,4 +11,5 @@ export interface studentInfo{
     year: number
     gender: string
     gmail: string
+    nickname : string
 }
