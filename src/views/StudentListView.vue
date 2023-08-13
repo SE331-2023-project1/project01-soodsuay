@@ -1,10 +1,11 @@
 <template>
   <main class="flex flex-col items-center">
-    <StudentCard v-for="student in students" :key="student.id" :student="student"></StudentCard>
+    <StudentCard class="student" v-for="student in students" :key="student.id" :student="student"></StudentCard>
     <div class="flex w-290 pagination mt-4">
       <RouterLink :to="{name: 'studentlist', query: {page: page - 1} }" rel="prev" v-if="page != 1" id="page-prev" class="text-left mr-auto">Prev Page</RouterLink>
       <RouterLink :to="{name: 'studentlist', query: {page: page + 1} }" rel="next" v-if="hasNextPage" id="page-next" class="text-right ml-auto">Next Page</RouterLink>
     </div>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Kanit:wght@600&family=Poiret+One&family=Racing+Sans+One&display=swap" rel="stylesheet">
     <!-- <select id="perpage" v-model="perPage">
       <option value="2">2</option>
       <option value="4">4</option>
@@ -52,5 +53,7 @@ onBeforeRouteUpdate((to, from, next) => {
 
 <style scoped>
 
-
+.student{
+  font-family: 'Poiret One', cursive;
+}
 </style>

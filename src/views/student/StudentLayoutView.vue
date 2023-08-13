@@ -25,6 +25,7 @@ StudentsInfoServices.getStudentById(Number(props.id)).then((response) => {
 
 </script>
 <template>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Kanit:wght@600&family=Racing+Sans+One&display=swap" rel="stylesheet">
     <div v-if="student">
         <div id="nav">
             <router-link :to="{name: 'student-detail', params:{id}}">Student Details</router-link> | 
@@ -38,8 +39,5 @@ StudentsInfoServices.getStudentById(Number(props.id)).then((response) => {
 </template>
 
 <style>
-nav {
-    font-family: cursive;
-}
 
 </style>

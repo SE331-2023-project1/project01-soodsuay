@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/image/789.jpg" width="500" height="200" />
-
-    <div class="wrapper">
-      <HelloWorld msg="789 School" />
+    <img alt="Vue logo" class="logo" src="@/assets/image/789(2).jpg" width="500" height="200" />
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Kanit:wght@600&family=Poiret+One&family=Racing+Sans+One&display=swap" rel="stylesheet">    <div class="wrapper">
+      <h1 class="text" >789 School</h1>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/teacher">Teacher list></RouterLink>
+        <RouterLink to="/teacher">Teacher list</RouterLink>
       </nav>
     </div>
   </header>
@@ -25,18 +25,21 @@ import HelloWorld from './components/HelloWorld.vue'
 header {
   line-height: 1.5;
   max-height: 100vh;
-}
 
+}
 .logo {
   display: block;
   margin: 0 auto 2rem;
+  width: 200px;
+  height: 200px;
+
 }
 
 nav {
-  width: 100%;
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+  font-family: 'Concert One', cursive;
 }
 
 nav a.router-link-exact-active {
@@ -55,6 +58,11 @@ nav a {
 
 nav a:first-of-type {
   border: 0;
+}
+.text {
+  font-family: 'Racing Sans One', cursive;
+  font-size: 50px;
+  text-align: center;
 }
 
 @media (min-width: 1024px) {
@@ -78,7 +86,6 @@ nav a:first-of-type {
     text-align: left;
     margin-left: -1rem;
     font-size: 1rem;
-
     padding: 1rem 0;
     margin-top: 1rem;
   }
