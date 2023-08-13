@@ -7,9 +7,6 @@ import StudentCommentView from '@/views/student/StudentCommentView.vue'
 import StudentAdvisorView from '@/views/student/StudentAdvisorView.vue'
 import { useStudentStore } from '@/stores/student'
 import 'animate.css';
-import HomeView from '../views/HomeView.vue'
-import TeacherListView from '../views/TeacherListView.vue'
-import TeacherDetailView from '../views/TeacherDetailView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -80,17 +77,6 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
-    },
-    {
-    path: '/teacher',
-    name: 'teacher',
-    component: TeacherListView
-    },
-    {
-    path: '/teacher/:id',
-    name: 'teacher-detail',
-    component: TeacherDetailView,
-    props:true
     }
   ]
 })
