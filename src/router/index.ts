@@ -11,9 +11,10 @@ import { commentStudent } from '@/stores/comment'
 import { commentStudentId } from '@/stores/comment_id'
 import TeacherListView from '../views/TeacherListView.vue'
 import TeacherDetailView from '../views/TeacherDetailView.vue'
+import { useStudentAllStore } from '@/stores/all_student'
 import { ref } from 'vue'
 
-import 'animate.css';
+import 'animate.css'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,67 +23,50 @@ const router = createRouter({
       path: '/',
       name: 'studentlist',
       component: StudentView,
-      props: (route) => ({page: parseInt(route.query?.page as string || '1') })
+      props: (route) => ({ page: parseInt((route.query?.page as string) || '1') })
     },
     {
       path: '/student/:id',
       name: 'student-layout',
       component: StudentlayoutView,
       props: true,
-        beforeEnter: (to) => {
-          // <-- put API call here
-          const id: number = parseInt(to.params.id as string)
-          const studentStore = useStudentStore()
-          return StudentsInfoServices.getStudentById(id)
-          .then((response) => {
-            // need to set up the data for the component
-            studentStore.setStudent(response.data)
-            const keep_comm = ref([])
-            const commentStudents = commentStudent()
-            const commentStudent_Id = commentStudentId()
-            const { comment } = storeToRefs(commentStudents)
-            keep_comm.value = comment.value.filter(
-              (commentItem) => id === commentItem.id
-            );
-            console.log('Filtered comments:', keep_comm.value)
-            commentStudent_Id.setComment(keep_comm.value)
-          })
-          .catch((error) => {
-            if (error.response && error.response.status === 404) {
-              return {
-                name: '404-resource',
-                params: { resource: 'event' }
-              }
-            }else{
-              return { name: 'network-error'}
-            }
-          })
-        },
+      beforeEnter: (to) => {
+        const id: number = parseInt(to.params.id as string)
+        const studentStore = useStudentStore()
+        const studentStore_all = useStudentAllStore()
+        const { student_all } = storeToRefs(studentStore_all)
+        console.log(student_all.value)
+        const keep = student_all.value[id - 1]
+        console.log(keep)
+        studentStore.setStudent(keep)
+        const keep_comm = ref([])
+        const commentStudents = commentStudent()
+        const commentStudent_Id = commentStudentId()
+        const { comment } = storeToRefs(commentStudents)
+        keep_comm.value = comment.value.filter((commentItem) => id === commentItem.id)
+        console.log('Filtered comments:', keep_comm.value)
+        commentStudent_Id.setComment(keep_comm.value)
+      },
+
       children: [
-               {
-              path: '',
-              name: 'student-detail',
-              component: StudentDetailView,
-              props: true
-            },
-            {
-              path: '',
-              name: 'student-comment',
-              component: StudentCommentView,
-              props: true
-            },
-            {
-              path: '',
-              name: 'student-advisor',
-              component: StudentAdvisorView,
-              props: true
-            },
-            // {
-            //   path: 'layout',
-            //   name: 'student-layout',
-            //   props: true,
-            //   component: StudentlayoutView
-            // },
+        {
+          path: '',
+          name: 'student-detail',
+          component: StudentDetailView,
+          props: true
+        },
+        {
+          path: '',
+          name: 'student-comment',
+          component: StudentCommentView,
+          props: true
+        },
+        {
+          path: '',
+          name: 'student-advisor',
+          component: StudentAdvisorView,
+          props: true
+        }
       ]
     },
 
@@ -98,13 +82,13 @@ const router = createRouter({
       path: '/teacher',
       name: 'teacher',
       component: TeacherListView
-      },
-      {
+    },
+    {
       path: '/teacher/:id',
       name: 'teacher-detail',
       component: TeacherDetailView,
-      props:true
-      }
+      props: true
+    }
   ]
 })
 

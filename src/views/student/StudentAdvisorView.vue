@@ -1,36 +1,42 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import type{PropType} from 'vue'
+import type {PropType} from 'vue'
 import type { Ref } from 'vue'
 import type { TeacherInfo } from '@/teacher'
 import { type studentInfo } from '@/student'
 import TeacherService from '@/services/TeacherService';
-const props =defineProps({
+import { useTeacherAllStore } from '@/stores/all_teacher'
+import { storeToRefs } from 'pinia'
+const props = defineProps({
     student: {
         type: Object as PropType<studentInfo>,
-            require: true
+        required: true
     }
 })
 
-const teacher = ref<TeacherInfo| null> (null)
-    TeacherService.getTeacherByID(Number(props.student.teacher_id)).then((response) => {
-    teacher.value = response.data
-}).catch(error => {
-        console.log(error)
-    })
+const teacherStoreAll = useTeacherAllStore();
+const { teacher_all } = storeToRefs(teacherStoreAll);
 
+const teacher = ref<TeacherInfo | null>(null);
+const teacherId = props.student.teacher_id;
+
+// Find the teacher with the matching id
+const foundTeacher = teacher_all.value.find(teacher => teacher.id === teacherId);
+
+// Assign the found teacher to the 'teacher' ref, or null if not found
+teacher.value = foundTeacher || null;
+console.log(teacher)
 </script>
 <template>
     <br><br><br>
     <div v-if="teacher">
-        <img :src="teacher.taacher_img" class="image" />
+        <img :src="teacher.teacher_img" class="image" />
         <br>
         <h1> {{ teacher?.teacher_name }} {{ teacher?.teacher_surname }} </h1>
-        <h3>{{ teacher?.teacher_gender }} {{ teacher?.teacher_age }} </h3>
-        <h3>{{ teacher?.teacher_graduated }}</h3>
-        <h3>{{ teacher?.teacher_position }}</h3>
-        <h3>{{ teacher?.teacher_email }}</h3>
-        <h3>{{ teacher?.teacher_phone }}</h3>
+        <h3>{{ teacher?.position }}</h3>
+        <h3>{{ teacher?.email }}</h3>
+        <h3>{{ teacher?.education }}</h3>
+
     </div>
 </template>
 <style scoped>

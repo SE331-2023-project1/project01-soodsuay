@@ -4,24 +4,35 @@ import StudentsInfoServices from '@/services/StudentsInfoServices'
 import type { Ref } from 'vue'
 import { type studentInfo } from '@/student'
 import {useRouter} from 'vue-router';
-const student = ref<studentInfo | null> (null)
+import { storeToRefs } from 'pinia';
+import { useStudentStore } from '@/stores/student';
+import { useStudentAllStore } from '@/stores/all_student';
+const StudentStore = useStudentStore()
+const StudentStore_all = useStudentAllStore()
+const { student_all } = storeToRefs(StudentStore_all)
+const { student } = storeToRefs(StudentStore)
+console.log(student_all.value)
+const keep_id = props.id
+const keep = student_all.value[keep_id-1]
+console.log(keep)
+StudentStore.setStudent(keep)
 
 const props = defineProps({
     id: String
 })
 
 const router = useRouter()
-StudentsInfoServices.getStudentById(Number(props.id)).then((response) => {
-        student.value = response.data
+// StudentsInfoServices.getStudentById(Number(props.id)).then((response) => {
+//         student.value = response.data
 
-    }).catch(error =>{
-        console.log(error)
-        if(error.response && error.response.status === 404){
-            router.push({name:'404-resource',params: {resource: 'event'}})
-        }else{
-            router.push({name:'network-error'})
-        }
-    })
+//     }).catch(error =>{
+//         console.log(error)
+//         if(error.response && error.response.status === 404){
+//             router.push({name:'404-resource',params: {resource: 'event'}})
+//         }else{
+//             router.push({name:'network-error'})
+//         }
+//     })
 
 </script>
 <template>

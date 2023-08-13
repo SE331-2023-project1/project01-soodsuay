@@ -5,12 +5,15 @@
       <RouterLink :to="{name: 'studentlist', query: {page: page - 1} }" rel="prev" v-if="page != 1" id="page-prev" class="text-left mr-auto">Prev Page</RouterLink>
       <RouterLink :to="{name: 'studentlist', query: {page: page + 1} }" rel="next" v-if="hasNextPage" id="page-next" class="text-right ml-auto">Next Page</RouterLink>
     </div>
+    <div>
     <form @submit.prevent="addStudent">
           <input v-model="newStudentName" placeholder="Student Name" />
           <input v-model="newStudentSurname" placeholder="Student Surname" />
           <input v-model="newStudentImage" placeholder="Student Image URL" />
-          <button type="submit" :disabled="!isFormValid">Add Student</button>
-        </form>
+          <input v-model="newStudentTeacher" type="number" placeholder="Teacher ID" />
+          <button class="button-52" type="submit" :disabled="!isFormValid">Add Student</button>
+    </form>
+  </div>
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Kanit:wght@600&family=Poiret+One&family=Racing+Sans+One&display=swap" rel="stylesheet">
 
   </main>
@@ -23,6 +26,7 @@ import { useRouter } from 'vue-router';
 import { onBeforeRouteLeave } from 'vue-router'
 import { storeToRefs } from 'pinia';
 import { useStudentAllStore } from '@/stores/all_student';
+const newStudentTeacher = ref(0);
 const studentStore_all = useStudentAllStore();
 const { student_all} = storeToRefs(studentStore_all);
 const students: Ref<studentInfo[]> = ref([])
@@ -50,6 +54,7 @@ const addStudent = () => {
       name: newStudentName.value,
       surname: newStudentSurname.value,
       image: newStudentImage.value,
+      teacher_id: newStudentTeacher.value
     };
 
     studentStore_all.pushNewStudent(newStudent);
@@ -57,6 +62,7 @@ const addStudent = () => {
     newStudentName.value = '';
     newStudentSurname.value = '';
     newStudentImage.value = '';
+    newStudentTeacher.value = 0
   }
 }
 
@@ -98,5 +104,58 @@ onBeforeRouteLeave((to, from, next) => {
 
 .student{
   font-family: 'Poiret One', cursive;
+}
+.button-52 {
+  font-size: 16px;
+  font-weight: 12;
+  letter-spacing: 1px;
+  padding: 8px 15px 8px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-left: 95px;
+
+}
+
+.button-52:after {
+  content: "";
+  background-color: #ffe54c;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.button-52:hover:after {
+  top: 0px;
+  left: 0px;
+}
+input{
+    height: 40px;
+    padding: 20px;
+    margin-left: 70px;
+    margin-bottom: 10px;
+    
+}
+form{
+  display:inline-block;
+    width: 400px;
+    cursor: pointer;
+    text-align: left;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+  .button-52 {
+    padding: 8px 15px 8px;
+  }
 }
 </style>
