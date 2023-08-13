@@ -9,6 +9,8 @@ import { useStudentStore } from '@/stores/student'
 import { storeToRefs } from 'pinia'
 import { commentStudent } from '@/stores/comment'
 import { commentStudentId } from '@/stores/comment_id'
+import TeacherListView from '../views/TeacherListView.vue'
+import TeacherDetailView from '../views/TeacherDetailView.vue'
 import { ref } from 'vue'
 
 import 'animate.css';
@@ -91,7 +93,18 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
-    }
+    },
+    {
+      path: '/teacher',
+      name: 'teacher',
+      component: TeacherListView
+      },
+      {
+      path: '/teacher/:id',
+      name: 'teacher-detail',
+      component: TeacherDetailView,
+      props:true
+      }
   ]
 })
 

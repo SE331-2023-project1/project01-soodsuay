@@ -3,6 +3,8 @@ import { ref } from 'vue'
 import type { Ref } from 'vue'
 import type { TeacherInfo } from '@/teacher'
 import TeacherService from '@/services/TeacherService';
+import TeacherListView from '../views/TeacherListView.vue'
+import TeacherDetailView from '../views/TeacherDetailView.vue'
 const teacher = ref<TeacherInfo | null> (null)
 const props = defineProps({
     id: String
