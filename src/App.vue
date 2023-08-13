@@ -5,9 +5,10 @@ import TeacherCard from './components/TeacherCard.vue'
 
 <template>
   <header>
-
+    <img alt="Vue logo" class="logo" src="@/assets/image/789.jpg" width="500" height="200" />
 
     <div class="wrapper">
+      <HelloWorld msg="789 School" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -85,5 +86,6 @@ nav a:first-of-type {
     display: flex;
   justify-content: center;
   }
+  
 }
 </style>
