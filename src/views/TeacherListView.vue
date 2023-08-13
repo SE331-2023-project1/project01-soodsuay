@@ -46,6 +46,9 @@ const addTeacher = () => {
       teacher_name: newTeacherName.value,
       teacher_surname: newTeacherSurname.value,
       teacher_img: newTeacherImage.value,
+      position :'',
+      email:'',
+      education:''
     };
     teacherStoreAll.pushNewTeacher(newTeacher);
     newTeacherName.value = "";

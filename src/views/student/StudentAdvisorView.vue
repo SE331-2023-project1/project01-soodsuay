@@ -1,18 +1,17 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import type {PropType} from 'vue'
-import type { Ref } from 'vue'
-import type { TeacherInfo } from '@/teacher'
-import { type studentInfo } from '@/student'
-import TeacherService from '@/services/TeacherService';
-import { useTeacherAllStore } from '@/stores/all_teacher'
-import { storeToRefs } from 'pinia'
+import { ref } from 'vue';
+import type { PropType } from 'vue';
+import type { TeacherInfo } from '@/teacher';
+import type { studentInfo } from '@/student';
+import { useTeacherAllStore } from '@/stores/all_teacher';
+import { storeToRefs } from 'pinia';
+
 const props = defineProps({
-    student: {
-        type: Object as PropType<studentInfo>,
-        required: true
-    }
-})
+  student: {
+    type: Object as PropType<studentInfo>,
+    required: true,
+  },
+});
 
 const teacherStoreAll = useTeacherAllStore();
 const { teacher_all } = storeToRefs(teacherStoreAll);
@@ -21,30 +20,34 @@ const teacher = ref<TeacherInfo | null>(null);
 const teacherId = props.student.teacher_id;
 
 // Find the teacher with the matching id
-const foundTeacher = teacher_all.value.find(teacher => teacher.id === teacherId);
+const foundTeacher = teacher_all.value.find((teacher) => teacher.id === teacherId);
 
 // Assign the found teacher to the 'teacher' ref, or null if not found
-teacher.value = foundTeacher || null;
-console.log(teacher)
+if (foundTeacher) {
+  teacher.value = foundTeacher;
+} else {
+  teacher.value = null;
+}
+
+console.log(teacher);
 </script>
 <template>
-    <br><br><br>
-    <div v-if="teacher">
-        <img :src="teacher.teacher_img" class="image" />
-        <br>
-        <h1> {{ teacher?.teacher_name }} {{ teacher?.teacher_surname }} </h1>
-        <h3>{{ teacher?.position }}</h3>
-        <h3>{{ teacher?.email }}</h3>
-        <h3>{{ teacher?.education }}</h3>
-
-    </div>
+  <br><br><br>
+  <div v-if="teacher">
+    <img :src="teacher.teacher_img" class="image" />
+    <br>
+    <h1> {{ teacher.teacher_name }} {{ teacher.teacher_surname }} </h1>
+    <h3>{{ teacher.position }}</h3>
+    <h3>{{ teacher.email }}</h3>
+    <h3>{{ teacher.education }}</h3>
+  </div>
 </template>
 <style scoped>
 .image{
-    width: 200px;
-    height: 150px;
-    align-items: center;
-    text-align: center;
+  width: 200px;
+  height: 150px;
+  align-items: center;
+  text-align: center;
   border-radius: 500px;
 }
 </style>

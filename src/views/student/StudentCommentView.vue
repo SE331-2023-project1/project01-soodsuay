@@ -14,23 +14,24 @@
   </template>
   
   <script setup lang="ts">
-  import { ref, onMounted } from 'vue'
+  import { ref, onMounted } from 'vue';
   import { storeToRefs } from 'pinia';
-  import { commentStudent } from '@/stores/comment'
-  import { commentStudentId } from '@/stores/comment_id'
-  import { type studentInfo } from '@/student'
-  import type { PropType } from 'vue'
+  import { commentStudent } from '@/stores/comment';
+  import { commentStudentId } from '@/stores/comment_id';
+  import type { commmentInfo } from '@/comment'
+  import { type studentInfo } from '@/student';
+  import type { PropType } from 'vue';
   
   const props = defineProps({
-      student: {
-          type: Object as PropType<studentInfo>,
-          require: true
-      }
-  })
+    student: {
+      type: Object as PropType<studentInfo>,
+      required: true,
+    },
+  });
   
   const comment_input = ref<string>('');
-  const keep_comm = ref([]);
-  const keepCommt_id = ref([]);
+  const keep_comm = ref<commmentInfo[]>([]);
+  const keepCommt_id = ref<commmentInfo[]>([]);
   const commentStudents = commentStudent();
   const commentStudent_Id = commentStudentId();
   const { comment } = storeToRefs(commentStudents);
@@ -39,7 +40,7 @@
   // Fetch comments when the component is created
   onMounted(() => {
     keep_comm.value = comment.value.filter(
-      (commentItem) => props.student.id === commentItem.id
+      (commentItem) => props.student.id === commentItem.student_id // Fix this line
     );
     commentStudent_Id.setComment(keep_comm.value);
     keepCommt_id.value = comment_id.value;
@@ -47,14 +48,15 @@
   
   const addComment = () => {
     const formatComment = {
-      id: props.student.id,
-      comment: comment_input.value
+    id:0,
+      student_id: props.student.id, // Update id to student_id
+      comment: comment_input.value,
     };
     commentStudents.pushComment(formatComment);
   
     // Update the filtered comments
     keep_comm.value = comment.value.filter(
-      (commentItem) => props.student.id === commentItem.id
+      (commentItem) => props.student.id === commentItem.student_id // Fix this line
     );
     commentStudent_Id.setComment(keep_comm.value);
   
@@ -65,3 +67,4 @@
     comment_input.value = '';
   };
   </script>
+  
