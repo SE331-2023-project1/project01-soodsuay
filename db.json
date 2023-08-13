@@ -84,25 +84,38 @@
             "id":1,
             "teacher_name":"Songyos",
             "teacher_surname":"Sugmakanan",
-            "taacher_img":"../assets/image/yong.jpg"
+            "teacher_img":"https://scontent.fbkk20-1.fna.fbcdn.net/v/t1.15752-9/365687060_653829903361231_4086493617811902572_n.jpg?_nc_cat=103&cb=99be929b-59f725be&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeE37UCjnwEyxfx0WWN4oIJb5ADbn2QXHNvkANufZBcc2zJVtv_J9WXNLnoN956sWPE2sAwg3KK7t7qwpypz7jgl&_nc_ohc=UNqKXx02vdsAX9QxgBz&_nc_oc=AQmoM-VTW3P_hHgrksvIqn_b9xOoE0SPZkz2uvU_hgr1AQyPI6jP_AvsM081QaS5_PU&_nc_ht=scontent.fbkk20-1.fna&oh=03_AdQgzzbv8NeV6AY747TG026gUT6ky9PleM0i7DwRhMxWDw&oe=64FF5B8E",
+            "position": "Director Performance",
+            "education": "Bachelor's degree in Theater Arts from Juilliard School",
+            "email":"Songyos_789@gmail.com"
         },
         {
             "id":2,
             "teacher_name":"Prung",
             "teacher_surname":"Tatchara",
-            "taacher_img":"../assets/image/prung.jpg"
+            "teacher_img":"https://scontent.fbkk20-1.fna.fbcdn.net/v/t1.15752-9/365382143_3653651724868348_625492054946436851_n.jpg?_nc_cat=100&cb=99be929b-59f725be&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeEAyUwBB2v6b84H6mgWGmPM4vE8dmzA-NDi8Tx2bMD40Jwhhw84nQKfv4AEOjMqN-WGAtwM6PnlrEU4QBeBOiek&_nc_ohc=0YTA5E61fxsAX9dUmqQ&_nc_ht=scontent.fbkk20-1.fna&oh=03_AdSUWItw7yWicVvWjCv4M2t-DALTrYRHXEvxWWM11zTdZw&oe=64FF3E3A",
+            "position": "Professor Performance",
+            "education": "Bachelor's degree in Vocal Performance from the Berklee College of Music",
+            "email":"Tatchara789@gmail.com"       
         },
+
         {
             "id":3,
             "teacher_name":"Apissara",
             "teacher_surname":"Petchruengrong",
-            "taacher_img":"../assets/image/jeda.jpg"
+            "teacher_img":"https://scontent.xx.fbcdn.net/v/t1.15752-9/365612533_805623441055592_6513035979602617636_n.jpg?_nc_cat=106&cb=99be929b-59f725be&ccb=1-7&_nc_sid=510075&_nc_eui2=AeFdCAFxy6_2xYwC8RttVKWZe9R2q1dx3Bl71HarV3HcGUf3BIUF0AvTCJsVzxsfFgAMmRZ0B7Mo2G03ta8To_cZ&_nc_ohc=rWEWM8g4PA0AX8-xjc_&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQSwif49KMn8-Z2P5PPw5l-nY1f7s6iaWN-DXILEJsq_g&oe=64FF35B1",
+            "position": "Director Vocal",
+            "education": "Bachelor's degree in Vocal Performance from the Berklee College of Music",
+            "email":"Apissara_P.789@gmail.com"        
         },
         {
             "id":4,
             "teacher_name":"Achariya",
             "teacher_surname":"Dulyapaibul",
-            "taacher_img":"../assets/image/amm.jpg"
+            "teacher_img":"https://scontent.xx.fbcdn.net/v/t1.15752-9/365384387_307415921810917_1096764033465563124_n.jpg?_nc_cat=107&cb=99be929b-59f725be&ccb=1-7&_nc_sid=510075&_nc_eui2=AeGpxOc0DgGvSCWVCn6u9cX1QtEV8viKCtZC0RXy-IoK1n67klZrijfuQXXRtSabzla8M_lH6wjWB01GPPalDScM&_nc_ohc=s5hkI3v4eSAAX8sJByk&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdS6lvRTxJk5WTVE5Ri3_yqpFR-Msz2CI9ndEvrXfo3HIQ&oe=64FF4B3F",
+            "position": "Director Acting",
+            "education": "Bachelor's degree in Theater Arts from the Tisch School of the Arts at New York University",
+            "email":"Achariya_Dulyapaibul_789@gmail.com"        
         }
     ]
 }
