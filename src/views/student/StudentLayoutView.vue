@@ -27,7 +27,7 @@ StudentsInfoServices.getStudentById(Number(props.id)).then((response) => {
 <template>
     <div v-if="student">
         <div id="nav">
-            <router-link :to="{name: 'student-detail', params:{id}}">Student list</router-link> | 
+            <router-link :to="{name: 'student-detail', params:{id}}">Student Details</router-link> | 
             <router-link :to="{name: 'student-advisor', params:{id}}">Teacher</router-link> |
             <router-link :to="{name: 'student-comment', params:{id}}">comment</router-link>
         </div>
