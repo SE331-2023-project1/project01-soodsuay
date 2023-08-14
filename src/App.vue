@@ -48,15 +48,15 @@ onMounted(async () => {
 
 <style scoped>
 header {
-  line-height: 1.5;
-  max-height: 100vh;
+  line-height: 1.3;
+  max-height: 95vh;
 
 }
 .logo {
-  display: block;
   margin: 0 auto 2rem;
-  width: 200px;
-  height: 200px;
+  width: 600px;
+  height: 500px;
+  
 
 }
 
@@ -64,11 +64,12 @@ nav {
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+  margin-right: 1rem;
   font-family: 'Concert One', cursive;
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  color:rgb(244, 9, 228);
 }
 
 nav a.router-link-exact-active:hover {
@@ -77,7 +78,7 @@ nav a.router-link-exact-active:hover {
 
 nav a {
   display: inline-block;
-  padding: 0 1rem;
+  padding: 0 10px;
   border-left: 1px solid var(--color-border);
 }
 
@@ -86,7 +87,7 @@ nav a:first-of-type {
 }
 .text {
   font-family: 'Racing Sans One', cursive;
-  font-size: 50px;
+  font-size: 55px;
   text-align: center;
 }
 
@@ -94,11 +95,11 @@ nav a:first-of-type {
   header {
     display: flex;
     place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    padding-right: calc(var(--section-gap) / 8);
   }
 
   .logo {
-    margin: 0 2rem 0 0;
+    margin: 0 3rem 0 0;
   }
 
   header .wrapper {
@@ -108,11 +109,12 @@ nav a:first-of-type {
   }
 
   nav {
-    text-align: left;
+    text-align: right;
     margin-left: -1rem;
-    font-size: 1rem;
+    max-width: -1rem;
+    font-size: 1.2rem;
     padding: 1rem 0;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
   
 }

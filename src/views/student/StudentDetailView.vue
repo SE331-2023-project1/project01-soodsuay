@@ -13,7 +13,7 @@ defineProps({
 
             <div v-if="student">
                 <h1>{{ student.name }} {{ student.surname }} </h1>
-                <h2> nickname : {{ student.nickname }}</h2>
+                <h2> 「 nickname : {{ student.nickname }} 」</h2>
                 <h2>Courses :</h2>
                 <h2 v-for="course in student.course_list" :key="course.id"> ★ {{ course.course_name }}</h2>
                 <h2> ☏   {{  student.gmail  }}</h2>
