@@ -43,7 +43,9 @@ import { storeToRefs } from 'pinia'
 import { useStudentAllStore } from '@/stores/all_student'
 import router from '@/router';
 import { useTeacherAllStore } from "@/stores/all_teacher";
+import { useMessageStore } from '@/stores/message'
 
+const store = useMessageStore()
 const teacherStoreAll = useTeacherAllStore();
 const { teacher_all } = storeToRefs<typeof teacherStoreAll>(teacherStoreAll)
 
@@ -83,6 +85,11 @@ const addTeacher = () => {
       email:newTeacherEmail.value,
       education:newTeacherEducation.value
     };
+    store.updateMessage('New teacher has been added')
+    setTimeout(() => {
+      store.resetMessage()
+    }, 2000)
+
     teacherStoreAll.pushNewTeacher(newTeacher);
     newTeacherName.value = "";
     newTeacherSurname.value = "";
@@ -120,6 +127,11 @@ const addStudent = () => {
       gmail: newStudentGmail.value,
       nickname: newStudentNickname.value
     }
+    store.updateMessage('New student has been added')
+    setTimeout(() => {
+      store.resetMessage()
+    }, 2000)
+
 
     studentStore_all.pushNewStudent(newStudent)
     

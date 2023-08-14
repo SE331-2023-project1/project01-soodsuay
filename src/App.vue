@@ -6,6 +6,11 @@ import TeacherServices from "@/services/TeacherService";
 import { useTeacherAllStore } from "@/stores/all_teacher";
 import StudentService from '@/services/StudentsInfoServices'
 import { useStudentAllStore } from '@/stores/all_student'
+import { useMessageStore } from './stores/message';
+import { storeToRefs } from 'pinia';
+
+const store = useMessageStore()
+const { message } = storeToRefs(store)
 const studentStore_all = useStudentAllStore();
 const teacherStoreAll = useTeacherAllStore();
 
@@ -41,6 +46,9 @@ onMounted(async () => {
         <RouterLink to="/about">Add person data</RouterLink>
        
       </nav>
+    </div>
+    <div id="flashMessage" v-if="message">
+      <h4> {{ message }} </h4>
     </div>
   </header>
 
@@ -91,7 +99,21 @@ nav a:first-of-type {
   font-size: 55px;
   text-align: center;
 }
+h4{
+  color: white;
+}
+@keyframes yellowfade{
+  from{
+    background: blue;
+  }
+  to {
+    background: transparent;
+  }
+}
 
+#flashMessage{
+  animation: yellowfade 2s ease-in-out;
+}
 @media (min-width: 1024px) {
   header {
     display: flex;
