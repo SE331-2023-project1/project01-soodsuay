@@ -10,15 +10,7 @@
       <RouterLink :to="{name: 'studentlist', query: {page: page - 1} }" rel="prev" v-if="page != 1" id="page-prev" style="font-family: 'Racing Sans One', cursive;" class="text-left mr-auto">Prev Page</RouterLink>
       <RouterLink :to="{name: 'studentlist', query: {page: page + 1} }" rel="next" v-if="hasNextPage" id="page-next" style="font-family: 'Racing Sans One', cursive;" class="text-right ml-auto">Next Page</RouterLink>
     </div>
-    <div>
-      <form @submit.prevent="addStudent">
-        <input v-model="newStudentName" placeholder="Student Name" />
-        <input v-model="newStudentSurname" placeholder="Student Surname" />
-        <input v-model="newStudentImage" placeholder="Student Image URL" />
-        <input v-model="newStudentTeacher" type="number" placeholder="Teacher ID" />
-        <button class="button-52" type="submit" :disabled="!isFormValid">Add Student</button>
-      </form>
-    </div>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Concert+One&family=Kanit:wght@600&family=Poiret+One&family=Racing+Sans+One&display=swap"
       rel="stylesheet"
@@ -33,14 +25,13 @@ import { useRouter } from 'vue-router'
 import { onBeforeRouteLeave } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useStudentAllStore } from '@/stores/all_student'
-const newStudentTeacher = ref()
+import isFormValid from '@/views/AboutView.vue'
+import addStudent from '@/views/AboutView.vue'
 const studentStore_all = useStudentAllStore()
 const { student_all } = storeToRefs(studentStore_all)
 const students: Ref<studentInfo[]> = ref([])
 const totalStudent = ref<number>(0)
-const newStudentName = ref('')
-const newStudentSurname = ref('')
-const newStudentImage = ref('')
+
 const props = defineProps({
   page: {
     type: Number,
@@ -48,39 +39,7 @@ const props = defineProps({
   }
 })
 
-const isFormValid = computed(
-  () =>
-    newStudentName.value.trim() !== '' &&
-    newStudentSurname.value.trim() !== '' &&
-    newStudentImage.value.trim() !== ''
-)
 
-const addStudent = () => {
-  if (isFormValid.value) {
-    const newStudent = {
-      id: student_all.value.length + 1,
-      name: newStudentName.value,
-      surname: newStudentSurname.value,
-      image: newStudentImage.value,
-      teacher_id: newStudentTeacher.value,
-      course_list: [],
-      comment: [],
-      student_id: student_all.value.length + 1,
-      major: '',
-      year: 0,
-      gender: '',
-      gmail: '',
-      nickname: ''
-    }
-
-    studentStore_all.pushNewStudent(newStudent)
-
-    newStudentName.value = ''
-    newStudentSurname.value = ''
-    newStudentImage.value = ''
-    newStudentTeacher.value = 0
-  }
-}
 
 const displayedStudents: Ref<studentInfo[]> = computed(() => {
   const startIndex = (props.page - 1) * 3
@@ -96,7 +55,7 @@ const hasNextPage = computed(() => {
 // Store new students before leaving the page
 onBeforeRouteLeave((to, from, next) => {
   if (isFormValid.value) {
-    addStudent()
+    new addStudent()
   }
   next()
 })

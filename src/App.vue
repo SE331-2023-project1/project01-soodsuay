@@ -37,8 +37,9 @@ onMounted(async () => {
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/teacher">Teacher list</RouterLink>
+        <RouterLink to="/about">Add person data</RouterLink>
+       
       </nav>
     </div>
   </header>

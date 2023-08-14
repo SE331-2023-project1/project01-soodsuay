@@ -12,8 +12,7 @@ const props = defineProps({
   <div v-if="props.student">
     <h1>{{ props.student?.name }} {{ props.student?.surname }}</h1>
     <h2>nickname : {{ props.student?.nickname }}</h2>
-    <h2>Courses :</h2>
-    <!-- <h2 v-for="course in props.student?.course_list" :key="course.id"> ★ {{ course.course_name }}</h2> -->
+    <h2 v-if="props.student?.course_list.length>0">Courses :</h2>
     <h2 v-for="course in props.student?.course_list" :key="course.course_id">
       ★ {{ course.course_name }}
     </h2>

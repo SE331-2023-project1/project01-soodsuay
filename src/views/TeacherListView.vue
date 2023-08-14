@@ -6,15 +6,6 @@
         :teacher="teacher"
       ></TeacherCard>
     </div>
-    <!-- Teacher form -->
-    <div class="from">
-    <form @submit.prevent="addTeacher">
-      <input class="teachername" v-model="newTeacherName" placeholder="Teacher Name" />
-      <input class="teachersurname" v-model="newTeacherSurname" placeholder="Teacher Surname" />
-      <input class="teacherlink" v-model="newTeacherImage" placeholder="Teacher Image URL" />
-      <button class="button-52" type="submit" :disabled="!isFormValid">Add Teacher</button>
-    </form>
-</div>
 
   </template>
   <script lang="ts" setup>
@@ -22,41 +13,10 @@
   import type { TeacherInfo } from "@/teacher";
   import TeacherService from "@/services/TeacherService";
   import { ref, computed,type Ref ,onMounted } from "vue";
-import { useTeacherAllStore } from "@/stores/all_teacher";
-import { storeToRefs } from "pinia";
-
-const teacherStoreAll = useTeacherAllStore();
+  import { useTeacherAllStore } from "@/stores/all_teacher";
+  import { storeToRefs } from 'pinia'
+  const teacherStoreAll = useTeacherAllStore();
 const { teacher_all } = storeToRefs<typeof teacherStoreAll>(teacherStoreAll)
-
-const newTeacherName = ref("");
-const newTeacherSurname = ref("");
-const newTeacherImage = ref("");
-
-const isFormValid = computed(
-  () =>
-    newTeacherName.value.trim() !== "" &&
-    newTeacherSurname.value.trim() !== "" &&
-    newTeacherImage.value.trim() !== ""
-);
-
-const addTeacher = () => {
-  if (isFormValid.value) {
-    const newTeacher = {
-      id: teacher_all.value.length + 1,
-      teacher_name: newTeacherName.value,
-      teacher_surname: newTeacherSurname.value,
-      teacher_img: newTeacherImage.value,
-      position :'',
-      email:'',
-      education:''
-    };
-    teacherStoreAll.pushNewTeacher(newTeacher);
-    newTeacherName.value = "";
-    newTeacherSurname.value = "";
-    newTeacherImage.value = "";
-  }
-};
-
 //   const teachers: Ref<Array<TeacherInfo>> = ref([]);
 //     TeacherService.getTeacher().then((response) => {
 //     teachers.value = response.data;
