@@ -36,15 +36,16 @@ const router = useRouter()
 //             router.push({name:'network-error'})
 //         }
 //     })
-
 </script>
 <template>
-    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Kanit:wght@600&family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Kanit:wght@600&family=Poiret+One&family=Racing+Sans+One&display=swap" rel="stylesheet">
     <div v-if="student">
-        <div id="nav">
+        <div>
+            <nav>
             <router-link :to="{name: 'student-detail', params:{id}}">Student Details</router-link> | 
             <router-link :to="{name: 'student-advisor', params:{id}}">Teacher</router-link> |
-            <router-link :to="{name: 'student-comment', params:{id}}">comment</router-link>
+            <router-link :to="{name: 'student-comment', params:{id}}">Comment</router-link>
+        </nav>
         </div>
         <!-- <h1>Student List</h1> -->
 
@@ -53,5 +54,15 @@ const router = useRouter()
 </template>
 
 <style>
+
+nav {
+    font-size: 17px;
+  text-align: left;
+  font-family: 'Concert One', cursive;
+}
+
+nav a.router-link-exact-active {
+  color:rgb(244, 9, 228);
+}
 
 </style>

@@ -1,16 +1,28 @@
 <template>
   <main class="flex flex-col items-center">
-    <StudentCard
-      class="student"
-      v-for="student in displayedStudents"
-      :key="student.id"
-      :student="student"
-    ></StudentCard>
-    <div class="flex w-290 pagination mt-4">
-      <RouterLink :to="{name: 'studentlist', query: {page: page - 1} }" rel="prev" v-if="page != 1" id="page-prev" style="font-family: 'Racing Sans One', cursive;" class="text-left mr-auto">Prev Page</RouterLink>
-      <RouterLink :to="{name: 'studentlist', query: {page: page + 1} }" rel="next" v-if="hasNextPage" id="page-next" style="font-family: 'Racing Sans One', cursive;" class="text-right ml-auto">Next Page</RouterLink>
+    <div class="card-container">
+      <div class="card-row">
+        <StudentCard
+          class="student"
+          v-for="student in displayedStudentsEven"
+          :key="student.id"
+          :student="student"
+        ></StudentCard>
+      </div>
+      <div class="card-row">
+        <StudentCard
+          class="student"
+          v-for="student in displayedStudentsOdd"
+          :key="student.id"
+          :student="student"
+        ></StudentCard>
+      </div>
     </div>
+    <div class="flex w-290 pagination mt-4">
+      <RouterLink :to="{name: 'studentlist', query: {page: page - 1} }" rel="prev" v-if="page != 1" id="page-prev" style="font-family: 'Racing Sans One', cursive;" class="flex items-center text-left mr-auto" >Prev Page</RouterLink>
+      <RouterLink :to="{name: 'studentlist', query: {page: page + 1} }" rel="next" v-if="hasNextPage" id="page-next" style="font-family: 'Racing Sans One', cursive;" class="flex items-center text-left mr-auto">Next Page</RouterLink>
 
+</div>
     <link
       href="https://fonts.googleapis.com/css2?family=Concert+One&family=Kanit:wght@600&family=Poiret+One&family=Racing+Sans+One&display=swap"
       rel="stylesheet"
@@ -39,20 +51,24 @@ const props = defineProps({
   }
 })
 
+const displayedStudentsEven: Ref<studentInfo[]> = computed(() => {
+  const startIndex = (props.page - 1) * 4;
+  const endIndex = startIndex + 2;
+  return student_all.value.slice(startIndex, endIndex);
+});
 
-
-const displayedStudents: Ref<studentInfo[]> = computed(() => {
-  const startIndex = (props.page - 1) * 3
-  const endIndex = startIndex + 3
-  return student_all.value.slice(startIndex, endIndex)
-})
+const displayedStudentsOdd: Ref<studentInfo[]> = computed(() => {
+  const startIndex = (props.page - 1) * 4 + 2;
+  const endIndex = startIndex + 2;
+  return student_all.value.slice(startIndex, endIndex);
+});
 
 const hasNextPage = computed(() => {
-  const totalPages = Math.ceil(student_all.value.length / 3)
-  return props.page < totalPages
-})
+  const totalPages = Math.ceil(student_all.value.length / 4); 
+  console.log(totalPages)
+  return props.page < totalPages;
+});
 
-// Store new students before leaving the page
 onBeforeRouteLeave((to, from, next) => {
   if (isFormValid.value) {
     new addStudent()
@@ -60,24 +76,37 @@ onBeforeRouteLeave((to, from, next) => {
   next()
 })
 
-// StudentService.getStudent(3, props.page).then((response: AxiosResponse<studentInfo[]>) => {
-//   students.value = response.data
-//   totalEvent.value = response.headers['x-total-count']
-//   })
-// onBeforeRouteUpdate((to, from, next) => {
-//   const toPage = Number(to.query.page)
-//   StudentService.getStudent(3, toPage).then((response: AxiosResponse<studentInfo[]>) => {
-//   students.value = response.data
-//   totalEvent.value = response.headers['x-total-count']
-//   next()
-//   })
-// })
 </script>
 
 <style scoped>
 .student {
   font-family: 'Poiret One', cursive;
 }
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px; /* Adjust spacing between rows */
+}
+
+.card-row .student {
+  width: 48%; /* Adjust card width */
+}
+
+@media (max-width: 768px) {
+  .card-row .student {
+    width: 100%;
+  }
+}
+
+
 .button-52 {
   font-size: 16px;
   font-weight: 12;

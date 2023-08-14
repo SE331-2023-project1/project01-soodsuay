@@ -9,6 +9,7 @@ const props = defineProps({
 })
 </script>
 <template>
+  <div class="box-student">
   <div v-if="props.student">
     <h1>{{ props.student?.name }} {{ props.student?.surname }}</h1>
     <h2>nickname : {{ props.student?.nickname }}</h2>
@@ -17,25 +18,43 @@ const props = defineProps({
       ★ {{ course.course_name }}
     </h2>
     <h2>☏ {{ props.student?.gmail }}</h2>
+    <div class="image-container">
     <img :src="props.student?.image" class="image" />
   </div>
+  </div>
+</div>
 </template>
 
 <style scoped>
 .image {
-  width: 350px;
-  height: 450px;
-  align-items: center;
+  width: 300px;
+  height: 400px;
   border-radius: 15%;
   margin-top: 3%;
   border: 4px solid rgb(255, 250, 102);
 }
 
+.box-student {
+  background-color: white;
+  width: 133.5%;
+  height: 98.5%;
+  align-items: center;
+  border-radius: 4%;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 h1 {
   font-family: Georgia, serif;
+  text-align: center;
 }
 
 h2 {
   font-family: Georgia, serif;
+  text-align: center;
 }
 </style>

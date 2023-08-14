@@ -33,9 +33,9 @@
     cursor: pointer;
     margin-bottom: 30px;
     text-align: left;
-    border: 2.5px solid rgb(255, 255, 100);
-    background-color: rgb(173, 205, 255);
+    background-color: rgb(132, 179, 255);
     border-radius: 10px;
+    box-shadow: 0px 10px 12px rgb(113, 121, 136);
   }
   
   .teacher-card:hover {
@@ -72,7 +72,8 @@
   
   .teacher-id {
     color: #ffffff;
-    font-size: 0.9rem;
+    font-size: 25px;
+    font-weight: 500px;
     font-family: 'Poiret One', cursive;
   }
   </style>

@@ -34,7 +34,6 @@ console.log(teacher)
         <h3>Education ♕ {{ teacher.education }}</h3>
         <h3>Email ☏ {{ teacher.email }}</h3>
 
-
     </div>
 </header>
 </template>
@@ -64,6 +63,7 @@ header {
   display: block;
   margin: 0 auto 2rem;
 }
+
 
 
 @media (min-width: 1024px) {

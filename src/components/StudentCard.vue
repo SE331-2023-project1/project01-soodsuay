@@ -8,8 +8,8 @@
       <div class="student-class">
         <div class="animate__animated animate__swing">
           <div class="student-card">
-            <h2>Name: {{ props.student?.name }}</h2>
-            <h2>Surname: {{ props.student?.surname }}</h2>
+            <h2>{{ props.student?.name }}</h2>
+            <h2>{{ props.student?.surname }} </h2>
             <img :src="student.image" class="image" />
           </div>
         </div>
@@ -38,22 +38,25 @@ const props = defineProps({
 }
 
 .student-card {
-  padding: 20px;
-  width: 270px;
+  
+  padding: 15px;
+  width: 250px;
   cursor: pointer;
-  border: 2.5px solid rgb(255, 251, 0);
-  margin-bottom: 30px;
+  
+  /* border: 3px solid rgb(59, 54, 147); */
+  margin-bottom: 10px;
   text-align: center;
   border-radius: 10%;
   color: #ffffff;
-  background-color: rgb(167, 197, 255);
+  background-color: rgb(132, 179, 255);
   font-size: 16px;
+  box-shadow: 0px 10px 12px rgb(113, 121, 136);
 
 }
 
 .image {
-  width: 210px;
-  height: 270px;
+  width: 140px;
+  height: 180px;
   border-radius: 2%;
 }
 

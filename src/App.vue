@@ -35,45 +35,57 @@ onMounted(async () => {
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/image/789(2).jpg" width="500" height="200" />
+    <div class=".app-container">
+      <header>
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Kanit:wght@600&family=Poiret+One&family=Racing+Sans+One&display=swap" rel="stylesheet">    <div class="wrapper">
+     <div class="container-logo">
+      <img alt="Vue logo" class="logo" src="@/assets/image/789.jpg" />
       <h1 class="text" >789 School</h1>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/teacher">Teacher list</RouterLink>
-        <RouterLink to="/about">Add person data</RouterLink>
-       
-      </nav>
+    <nav>
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/teacher">Teacher list</RouterLink>
+      <RouterLink to="/about">Add person data</RouterLink>
+ 
+    </nav>
+     </div>
+   
     </div>
     <div id="flashMessage" v-if="message">
       <h4> {{ message }} </h4>
     </div>
   </header>
+    </div>
 
+ 
   <RouterView />
 </template>
 
 <style scoped>
+
 header {
   line-height: 1.3;
   max-height: 95vh;
+  /* margin-right: 8rem; */
 
 }
 .logo {
-  margin: 0 auto 2rem;
-  width: 600px;
-  height: 500px;
-  
+  width: 500px;
+  height: 250px;
+}
 
+.container-logo {
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+    margin-top: 100px;
 }
 
 nav {
   font-size: 12px;
   text-align: center;
-  margin-top: 2rem;
-  margin-right: 1rem;
+  margin-top: 1rem;
+  margin-right: 8rem;
   font-family: 'Concert One', cursive;
 }
 
@@ -122,18 +134,19 @@ h4{
   }
 
   .logo {
-    margin: 0 3rem 0 0;
+    margin: 0 1rem 0 0;
   }
 
   header .wrapper {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
+    margin-right: 2rem;
   }
 
   nav {
     text-align: right;
-    margin-left: -1rem;
+    margin-left: -2rem;
     max-width: -1rem;
     font-size: 1.2rem;
     padding: 1rem 0;
