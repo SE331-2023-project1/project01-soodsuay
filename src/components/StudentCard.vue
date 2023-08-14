@@ -39,7 +39,7 @@ const props = defineProps({
 
 .student-card {
   padding: 20px;
-  width: 250px;
+  width: 270px;
   cursor: pointer;
   border: 2.5px solid rgb(255, 251, 0);
   margin-bottom: 30px;
@@ -48,12 +48,13 @@ const props = defineProps({
   color: #ffffff;
   background-color: rgb(167, 197, 255);
   font-size: 16px;
+
 }
 
 .image {
   width: 210px;
   height: 270px;
-  align-items: center;
+  border-radius: 2%;
 }
 
 .student-card:hover {
@@ -63,7 +64,7 @@ const props = defineProps({
 
 .event-link {
   color: #2c3e50;
-  text-decoration: none;
+  text-decoration:solid;
 }
 
 h2 {

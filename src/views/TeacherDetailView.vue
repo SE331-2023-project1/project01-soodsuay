@@ -23,14 +23,16 @@ console.log(teacher)
 
 </script>
 <template>
+  
     <header>
+      <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Noto+Sans+SC:wght@700&family=Oxygen&family=Raleway:wght@100;200;700&family=Roboto+Slab:wght@500;700&family=Rowdies:wght@300&family=Rubik:wght@500&display=swap" rel="stylesheet">
     <br>
     <div v-if="teacher">
         <img :src="teacher?.teacher_img" class="image" ><br>
         <h1>{{ teacher.teacher_name }} {{ teacher.teacher_surname }}</h1>
         <h3>Position: {{ teacher.position }}</h3>
-        <h3>Education: {{ teacher.education }}</h3>
-        <h3>Email: {{ teacher.email }}</h3>
+        <h3>Education ♕ {{ teacher.education }}</h3>
+        <h3>Email ☏ {{ teacher.email }}</h3>
 
 
     </div>
@@ -46,11 +48,16 @@ console.log(teacher)
 }
 h1{
     font-weight: bold ;
+    font-family: Georgia, serif;
 
 }
+h3{
+  font-weight: 400 ;
+  font-family: 'Oxygen', sans-serif;
+}
 header {
-  line-height: 1.5;
-  max-height: 5vh;
+  line-height: 1.8;
+  max-height: 10vh;
 }
 
 .image {
@@ -68,6 +75,11 @@ header {
 
   .image {
     margin: 0 2rem 0 0;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 8rem;
+    margin-left: 10px;
+    border: 4px solid rgb(255, 250, 102);
   }
 
   header .wrapper {

@@ -7,22 +7,8 @@
       :student="student"
     ></StudentCard>
     <div class="flex w-290 pagination mt-4">
-      <RouterLink
-        :to="{ name: 'studentlist', query: { page: page - 1 } }"
-        rel="prev"
-        v-if="page != 1"
-        id="page-prev"
-        class="text-left mr-auto"
-        >Prev Page</RouterLink
-      >
-      <RouterLink
-        :to="{ name: 'studentlist', query: { page: page + 1 } }"
-        rel="next"
-        v-if="hasNextPage"
-        id="page-next"
-        class="text-right ml-auto"
-        >Next Page</RouterLink
-      >
+      <RouterLink :to="{name: 'studentlist', query: {page: page - 1} }" rel="prev" v-if="page != 1" id="page-prev" style="font-family: 'Racing Sans One', cursive;" class="text-left mr-auto">Prev Page</RouterLink>
+      <RouterLink :to="{name: 'studentlist', query: {page: page + 1} }" rel="next" v-if="hasNextPage" id="page-next" style="font-family: 'Racing Sans One', cursive;" class="text-right ml-auto">Next Page</RouterLink>
     </div>
     <div>
       <form @submit.prevent="addStudent">
