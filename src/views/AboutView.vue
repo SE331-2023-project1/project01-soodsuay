@@ -151,6 +151,7 @@ const addStudent = () => {
   height: 98.5%;
   align-items: center;
   border-radius: 4%;
+  font-family: din-round,sans-serif;
 }
   .button-19 {
   appearance: button;
@@ -196,6 +197,7 @@ const addStudent = () => {
   right: 0;
   top: 0;
   z-index: -1;
+
 }
 
 .button-19:main,
@@ -211,6 +213,7 @@ const addStudent = () => {
 .button-19:disabled {
   cursor: auto;
 }
+
 @media (min-width: 1024px) {
   .about {
     min-height: 100vh;

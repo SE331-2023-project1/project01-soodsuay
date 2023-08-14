@@ -45,6 +45,7 @@ const { teacher_all } = storeToRefs<typeof teacherStoreAll>(teacherStoreAll)
     text-align: right;
   }
 
+
 input{
     height: 40px;
     padding: 20px;

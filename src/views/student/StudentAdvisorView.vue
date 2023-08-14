@@ -32,22 +32,47 @@ if (foundTeacher) {
 console.log(teacher);
 </script>
 <template>
+  <div class="box-Advisor">
   <br><br><br>
   <div v-if="teacher">
     <img :src="teacher.teacher_img" class="image" />
     <br>
     <h1> {{ teacher.teacher_name }} {{ teacher.teacher_surname }} </h1>
-    <h3>{{ teacher.position }}</h3>
+    <h3> {{ teacher.position }}</h3>
     <h3>{{ teacher.email }}</h3>
     <h3>{{ teacher.education }}</h3>
   </div>
+</div>
 </template>
 <style scoped>
 .image{
-  width: 200px;
-  height: 150px;
+  width: 300x;
+  height: 250px;
   align-items: center;
   text-align: center;
-  border-radius: 500px;
+  border: 4px solid rgb(255, 250, 102);
+  border-radius: 49%;
+  margin-left: 37%;
+}
+.box-Advisor {
+  background-color: white;
+  width: 135% ;
+  height: 117%;
+  align-items: center;
+
+  margin-bottom: 20px;
+    /* margin-left: px; */
+    
+}
+
+h1 {
+  margin-top: 5px;
+  text-align: center;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h3 {
+  text-align: center;
+  font-family:Arial, Helvetica, sans-serif
 }
 </style>

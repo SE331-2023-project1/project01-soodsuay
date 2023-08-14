@@ -1,6 +1,6 @@
 <template>
     <RouterLink class="teacher-link" :to="{ name: 'teacher-detail', params: { id: teacher?.id } }">
-      <div class="animate__animated animate__fadeInLeftBig">
+      <div class="animate__animated animate__swing">
       <div class="teacher-card">
         <div class="teacher-image">
           <img :src="teacher?.teacher_img" class="image" /><br>

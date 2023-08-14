@@ -39,7 +39,7 @@ const props = defineProps({
   width: 133.5%;
   height: 98.5%;
   align-items: center;
-  border-radius: 4%;
+  border-radius: 3%;
 }
 
 .image-container {
