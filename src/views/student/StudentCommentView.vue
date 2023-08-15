@@ -8,7 +8,7 @@
         </form>
       </div>
       <div v-for="(commentItem, index) in keepCommt_id" :key="index">
-        <p class="commentItem">
+        <p class="comment-item">
         <strong>Comment Number {{ index + 1 }} :</strong> {{ commentItem.comment }}
       </p>      
     </div>
@@ -72,14 +72,24 @@
   <style scoped>
   .box-comment {
   background-color: white;
-  width: 133.5%;
-  height: 117%;
-  align-items: center;
-  border-radius: 4%;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
   text-align: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  
 }
 
+.comment-form {
+  margin-bottom: 20px;
+}
+
+
+
   .button-19 {
+    width: 100px;
   appearance: button;
   background-color: #1899D6;
   border: solid transparent;
@@ -105,7 +115,7 @@
   white-space: nowrap;
   /* width: 40%; */
   margin-left: 2px;
-  height: 35px;
+  height: 40px;
 }
 
 .button-19:after {
@@ -136,25 +146,33 @@
 .button-19:disabled {
   cursor: auto;
 }
-input{
+input {
   border-radius: 15px;
-  border-color: #1899D6;
+  border: 3px solid #1899D6;
   margin-top: 20px;
-  border-width: 3px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
 }
-label{
-  padding-right: 20px;
-  font-weight: bold;
-}
-.commentItem{
-  background-color: #FFFFFF;
-  border-radius: 5px;
-  height: 30px;
-  margin-top: 10px;
-}
-.commentItem strong {
+
+label {
   font-weight: bold;
 }
 
+.comment-item {
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment-item strong {
+  font-weight: bold;
+}
+
+/* Add more styles as needed */
+
+  
 
 </style>

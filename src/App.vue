@@ -39,7 +39,7 @@ onMounted(async () => {
       <header>
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Kanit:wght@600&family=Poiret+One&family=Racing+Sans+One&display=swap" rel="stylesheet">    <div class="wrapper">
      <div class="container-logo">
-      <img alt="Vue logo" class="logo" src="@/assets/image/789.jpg" />
+      <img alt="Vue logo" class="logo" src="@/assets/image/7891.jpg" />
       <h1 class="text" >789 School</h1>
 
     <nav>
@@ -62,35 +62,35 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-
 header {
   line-height: 1.3;
   max-height: 95vh;
-  /* margin-right: 8rem; */
-
 }
+
 .logo {
-  width: 500px;
-  height: 250px;
+  width: 300px;
+  height: 150px;
 }
 
 .container-logo {
-    width: fit-content;
-    height: fit-content;
-    align-items: center;
-    margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
 }
 
 nav {
-  font-size: 12px;
+  font-size: 17px;
   text-align: center;
   margin-top: 1rem;
-  margin-right: 8rem;
   font-family: 'Concert One', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 nav a.router-link-exact-active {
-  color:rgb(244, 9, 228);
+  color:red;
 }
 
 nav a.router-link-exact-active:hover {
@@ -106,16 +106,28 @@ nav a {
 nav a:first-of-type {
   border: 0;
 }
+
 .text {
   font-family: 'Racing Sans One', cursive;
   font-size: 55px;
-  text-align: center;
 }
-h4{
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px; /* Adjust spacing between rows */
+}
+
+.card-row .student {
+  width: 48%; /* Adjust card width */
+}
+
+h4 {
   color: white;
 }
-@keyframes yellowfade{
-  from{
+
+@keyframes yellowfade {
+  from {
     background: blue;
   }
   to {
@@ -123,14 +135,19 @@ h4{
   }
 }
 
-#flashMessage{
+#flashMessage {
   animation: yellowfade 2s ease-in-out;
 }
+
 @media (min-width: 1024px) {
+  .container-logo{
+    margin-top: 200px;
+  }
   header {
     display: flex;
     place-items: center;
     padding-right: calc(var(--section-gap) / 8);
+    margin-bottom: 200px;
   }
 
   .logo {
@@ -139,19 +156,16 @@ h4{
 
   header .wrapper {
     display: flex;
-    place-items: flex-start;
+    place-items: center;
     flex-wrap: wrap;
     margin-right: 2rem;
   }
 
   nav {
-    text-align: right;
-    margin-left: -2rem;
+    text-align: center;
     max-width: -1rem;
-    font-size: 1.2rem;
     padding: 1rem 0;
-    margin-top: 0.5rem;
+    font-size: 20px;
   }
-  
 }
 </style>

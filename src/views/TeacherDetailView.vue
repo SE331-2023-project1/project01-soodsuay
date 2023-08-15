@@ -29,12 +29,12 @@ console.log(teacher)
       <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Noto+Sans+SC:wght@700&family=Oxygen&family=Raleway:wght@100;200;700&family=Roboto+Slab:wght@500;700&family=Rowdies:wght@300&family=Rubik:wght@500&display=swap" rel="stylesheet">
     <br>
     <div v-if="teacher">
-      <div class="image-containerr">
+      <div class="image-container">
         <img :src="teacher?.teacher_img" class="image" ><br>
         <h1>{{ teacher.teacher_name }} {{ teacher.teacher_surname }}</h1>
-        <h3>Position: {{ teacher.position }}</h3>
-        <h3>Education ♕ {{ teacher.education }}</h3>
-        <h3>Email ☏ {{ teacher.email }}</h3>
+        <h3 class="position">Position: {{ teacher.position }}</h3>
+        <h3 class="education">Education ♕ {{ teacher.education }}</h3>
+        <h3 class="email">Email ☏ {{ teacher.email }}</h3>
       </div>
 
     </div>
@@ -42,72 +42,63 @@ console.log(teacher)
 </header>
 </template>
 <style scoped>
-.image{
-    width: 240px;
-    height: 260px;
-    align-items: center;
-    border-radius: 400px;
-    
-
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-h1{
-  font-size: 25px;
-    font-weight: bold ;
-    font-family: Georgia, serif;
-    text-align: center;
 
-}
-h3{
-  font-weight: 300 ;
-  font-family: cursive;
+.box-teacher {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 80%; /* Increase width */
+  max-width: 600px;
+  margin: 0 auto; /* Center the box horizontally */
   text-align: center;
 }
-header {
-  line-height: 2.5;
-  max-height: 40vh;
+
+.image-container {
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .image {
-  display:inline;
-  margin: 0 auto 8rem;
-}
-.box-teacher {
-  background-color: white;
-  width: 500% ;
-  height: 314.3%;
-  align-items: center;
-  padding-left: 45%;
-  padding-right: 46.9%;
-  padding-top: 15%;
-}
-.image-containerr {
-  justify-content: center;
-  align-items: center;
+  width: 220px;
+  height: 240px;
+  border-radius: 50%;
+  border: 4px solid rgb(102, 140, 255);
 }
 
+.teacher-details {
+  font-family: 'Rubik', sans-serif;
+}
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+h1 {
+  font-size: 1.8rem; /* Increase font size */
+  font-weight: bold;
+  margin-top: 15px;
+  color: #333;
+}
 
+.position {
+  font-size: 1.2rem; /* Increase font size */
+  margin-top: 10px;
+  color: #777;
+}
+
+.education, .email {
+  font-size: 1rem; /* Increase font size */
+  margin-top: 5px;
+  color: #555;
+}
+
+@media (min-width: 768px) {
   .image {
-    margin: 0 2rem 0 0;
-    align-items: center;
-    margin-bottom: 20px;
-    margin-top: 10rem;
-    margin-left: 20px;
-    border: 4px solid rgb(255, 250, 102);
+    width: 250px; /* Increase width */
+    height: 270px; /* Increase height */
   }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
 }
-
 </style>

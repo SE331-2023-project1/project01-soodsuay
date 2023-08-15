@@ -18,9 +18,43 @@
         ></StudentCard>
       </div>
     </div>
-    <div class="flex w-290 pagination mt-4">
-      <RouterLink :to="{name: 'studentlist', query: {page: page - 1} }" rel="prev" v-if="page != 1" id="page-prev" style="font-family: 'Racing Sans One', cursive;" class="flex items-center text-left mr-auto" >Prev Page</RouterLink>
-      <RouterLink :to="{name: 'studentlist', query: {page: page + 1} }" rel="next" v-if="hasNextPage" id="page-next" style="font-family: 'Racing Sans One', cursive;" class="flex items-center text-left mr-auto">Next Page</RouterLink>
+    <div class="w-500 pagination mt-10 justify-center">
+    <div class="change-page">
+
+    </div>
+  <RouterLink
+    :to="{ name: 'studentlist', query: { page: page - 1 } }"
+    rel="prev"
+    v-if="page != 1"
+    id="page-prev"
+    style="
+    font-family: 'Racing Sans One', cursive;
+    color: #fff;
+    background-color: #1899D6;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;"
+    class="flex items-center text-center"
+  >Prev Page</RouterLink>
+  
+  <RouterLink
+    :to="{ name: 'studentlist', query: { page: page + 1 } }"
+    rel="next"
+    v-if="hasNextPage"
+    id="page-next"
+    style="
+    font-family: 'Racing Sans One', cursive;
+    color: #fff;
+    background-color: #1899D6;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s, color 0.3s;"
+
+    class="flex items-center text-center"
+  >Next Page</RouterLink>
 
 </div>
     <link
@@ -79,6 +113,12 @@ onBeforeRouteLeave((to, from, next) => {
 </script>
 
 <style scoped>
+.change-page{
+  
+}
+.pagination{
+  width: 550px;
+}
 .student {
   font-family: 'Poiret One', cursive;
 }
@@ -98,65 +138,6 @@ onBeforeRouteLeave((to, from, next) => {
 
 .card-row .student {
   width: 48%; /* Adjust card width */
-}
-.button-19 {
-  appearance: button;
-  background-color: #1899D6;
-  border: solid transparent;
-  border-radius: 16px;
-  border-width: 0 0 4px;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  font-family: din-round,sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: .8px;
-  line-height: 20px;
-  margin: 0;
-  outline: none;
-  overflow: visible;
-  padding: 13px 16px;
-  text-align: center;
-  text-transform: uppercase;
-  touch-action: manipulation;
-  transform: translateZ(0);
-  transition: filter .2s;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
-  width: 45%;
-}
-
-.button-19:after {
-  background-clip: padding-box;
-  background-color: #1CB0F6;
-  border: solid transparent;
-  border-radius: 16px;
-  border-width: 0 0 4px;
-  bottom: -4px;
-  content: "";
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: -1;
-}
-
-.button-19:main,
-.button-19:focus {
-  user-select: auto;
-}
-
-.button-19:hover:not(:disabled) {
-  filter: brightness(1.1);
-  -webkit-filter: brightness(1.1);
-}
-
-.button-19:disabled {
-  cursor: auto;
 }
 
 @media (max-width: 768px) {

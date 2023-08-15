@@ -11,6 +11,7 @@ const props = defineProps({
 <template>
   <div class="box-student">
   <div v-if="props.student">
+    <img :src="props.student?.image" class="image" />
     <h1>{{ props.student?.name }} {{ props.student?.surname }}</h1>
     <h2>nickname : {{ props.student?.nickname }}</h2>
     <h2 v-if="props.student?.course_list.length>0">Courses :</h2>
@@ -19,42 +20,62 @@ const props = defineProps({
     </h2>
     <h2>☏ {{ props.student?.gmail }}</h2>
     <div class="image-container">
-    <img :src="props.student?.image" class="image" />
   </div>
   </div>
 </div>
 </template>
 
 <style scoped>
-.image {
-  width: 300px;
-  height: 400px;
-  border-radius: 15%;
-  margin-top: 3%;
-  border: 4px solid rgb(255, 250, 102);
-}
-
 .box-student {
   background-color: white;
-  width: 133.5%;
-  height: 98.5%;
-  align-items: center;
-  border-radius: 3%;
+  width: 80%; /* Adjust width */
+  max-width: 600px;
+  height: 90%;
+  margin: 0 auto; /* Center the box horizontally */
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .image-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
+}
+
+.image {
+  width: 220px;
+  height: 300px; /* Adjust height */
+  border-radius: 15%;
+  border: 4px solid rgb(102, 140, 255);
 }
 
 h1 {
-  font-family: Georgia, serif;
-  text-align: center;
+  font-family: 'Rubik', sans-serif;
+  margin: 10px 0;
+  color: #333;
+  font-size: 25px;
+}
+h2 {
+  font-family: 'Rubik', sans-serif;
+  margin: 10px 0;
+  color: #333;
+  font-size: 15px;
+  text-align: left;
 }
 
-h2 {
-  font-family: Georgia, serif;
-  text-align: center;
+
+@media (min-width: 768px) {
+  .box-student {
+    width: 100%; /* Adjust width */
+    padding: 30px; /* Increase padding */
+  }
+
+  .image {
+    width: 280px; /* Increase width */
+    height: 380px; /* Increase height */
+  }
 }
 </style>

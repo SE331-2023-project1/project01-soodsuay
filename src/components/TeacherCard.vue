@@ -29,7 +29,7 @@
   .teacher-card {
     display: flex;
     padding: 20px;
-    width: 400px;
+    width: 350px;
     cursor: pointer;
     margin-bottom: 30px;
     text-align: left;

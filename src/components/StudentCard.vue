@@ -42,7 +42,7 @@ const props = defineProps({
   padding: 15px;
   width: 250px;
   cursor: pointer;
-  
+  margin: 10px;
   /* border: 3px solid rgb(59, 54, 147); */
   margin-bottom: 10px;
   text-align: center;

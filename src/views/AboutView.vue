@@ -1,23 +1,25 @@
 <template>
-  <div>
-    <select v-model="selectedForm" id="formSelect">
-      <option value="student">Student Form</option>
-      <option value="teacher">Teacher Form</option>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Noto+Sans+SC:wght@700&family=Oxygen&family=Plus+Jakarta+Sans:wght@300&family=Racing+Sans+One&family=Raleway:wght@100;200;700&family=Roboto+Slab:wght@500;700&family=Rowdies:wght@300&family=Rubik:wght@500&display=swap" rel="stylesheet">
+<div class="form">
+<div>
+    <select class="from-selection" v-model="selectedForm" id="formSelect">
+      <option value="student"  >Student Form</option>
+      <option value="teacher"  >Teacher Form</option>
     </select>
   </div>
-    <div v-if="selectedForm === 'student'">
+    <div v-if="selectedForm === 'student'" class="form-section">
       <h1>Add new student form</h1>
       <form @submit.prevent="addStudent">
         <input v-model="newStudentName" placeholder="Student Name" />
         <input v-model="newStudentSurname" placeholder="Student Surname" />
         <input v-model="newStudentNickname" placeholder="Student Nickname" />
-        <input v-model="newStudentGmail" placeholder="Student Gmail" />
+        <input v-model="newStudentGmail" placeholder="Student Email" />
         <input v-model="newStudentImage" placeholder="Student Image URL" />
         <input v-model="newStudentTeacher" type="number" placeholder="Teacher ID" />
         <button class="button-19" type="submit" :disabled="!isFormValid">Add Student</button>
       </form>
     </div>
-    <div v-if="selectedForm === 'teacher'">
+    <div v-if="selectedForm === 'teacher'" class="form-section">
       <div class="from">
         <h1>Add new teacher form</h1>
     <form @submit.prevent="addTeacher">
@@ -35,6 +37,7 @@
     </form>
 </div>
     </div>
+  </div>
 </template>
 <script setup lang="ts">
 import { ref, computed, type Ref, onMounted } from 'vue'
@@ -145,16 +148,41 @@ const addStudent = () => {
 }
 </script>
 <style scoped>
-.box-comment {
-  background-color: white;
-  width: 133.5%;
-  height: 98.5%;
-  align-items: center;
-  border-radius: 4%;
-  font-family: din-round,sans-serif;
+.form {
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
 }
+
+#formSelect {
+  margin: 10px 0;
+  padding: 8px;
+  font-size: 16px;
+  border-radius:20px ;
+
+}
+
+.form-section {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #9dcdff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  color:#5f5f5f;
+  
+}
+
+input {
+  width: 80%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
   .button-19 {
-  appearance: button;
+    appearance: button;
   background-color: #1899D6;
   border: solid transparent;
   border-radius: 16px;
@@ -165,10 +193,10 @@ const addStudent = () => {
   display: inline-block;
   font-family: din-round,sans-serif;
   font-size: 15px;
+  margin-left: 20px;
   font-weight: 700;
   letter-spacing: .8px;
   line-height: 20px;
-  margin: 0;
   outline: none;
   overflow: visible;
   padding: 13px 16px;
@@ -181,7 +209,7 @@ const addStudent = () => {
   -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  width: 45%;
+  width: 40%;
 }
 
 .button-19:after {
@@ -213,13 +241,18 @@ const addStudent = () => {
 .button-19:disabled {
   cursor: auto;
 }
+h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: bold;
+}
 
 @media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+  .form {
+    margin-top: 100px;
   }
-
+  input{
+    width: 100%;
+  }
 }
+
 </style>

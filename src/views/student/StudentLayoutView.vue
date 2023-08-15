@@ -38,10 +38,10 @@ const router = useRouter()
 //     })
 </script>
 <template>
-    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Kanit:wght@600&family=Poiret+One&family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bellota+Text:wght@700&family=Caveat:wght@600&family=Noto+Sans+SC:wght@700&family=Oxygen&family=Plus+Jakarta+Sans:wght@300&family=Racing+Sans+One&family=Raleway:wght@100;200;700&family=Roboto+Slab:wght@500;700&family=Rowdies:wght@300&family=Rubik:wght@500&display=swap" rel="stylesheet">
     <div v-if="student">
-        <div>
-            <nav>
+        <div class="nav-container">
+            <nav class="nav-links">
             <router-link :to="{name: 'student-detail', params:{id}}">Student Details</router-link> | 
             <router-link :to="{name: 'student-advisor', params:{id}}">Teacher</router-link> |
             <router-link :to="{name: 'student-comment', params:{id}}">Comment</router-link>
@@ -54,15 +54,29 @@ const router = useRouter()
 </template>
 
 <style>
+.nav-container {
+    display: flex;
+    justify-content: center;
+    border: 3px solid rgb(102, 140, 255);
+    background-color: rgb(255, 238, 48);
+    border-radius: 20px;
+    margin-bottom: 10px;
+    color: #474747;
+}
 
-nav {
+.nav-links {
     font-size: 17px;
-  text-align: left;
-  font-family: 'Concert One', cursive;
+    text-align: center;
+    font-family: 'Bellota Text', cursive;
+    font-weight: bold;
+}
+
+.nav-links a {
+    margin: 0 10px;
 }
 
 nav a.router-link-exact-active {
-  color:rgb(244, 9, 228);
+    color: red;
+    align-items: center;
 }
-
 </style>
