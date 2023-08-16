@@ -38,6 +38,7 @@ console.log(teacher);
     <img :src="teacher.teacher_img" class="image" />
     <br>
     <h1> {{ teacher.teacher_name }} {{ teacher.teacher_surname }} </h1>
+    <h3 class="id"> Teacher ID: {{ teacher.id }}</h3>
     <h3 class="position"> Position: {{ teacher.position }}</h3>
     <h3 class="education">Education: {{ teacher.education }}</h3>
     <h3 class="email">Email: {{ teacher.email }}</h3>
@@ -98,7 +99,11 @@ h1 {
   margin-top: 5px;
   color: #555;
 }
-
+.id{
+  font-size: 1.2rem; /* Increase font size */
+  margin-top: 7px;
+  color: #777;
+}
 @media (min-width: 768px) {
   .image {
     width: 250px; /* Increase width */

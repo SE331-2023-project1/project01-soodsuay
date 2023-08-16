@@ -16,7 +16,7 @@
         <input v-model="newStudentGmail" placeholder="Student Email" />
         <input v-model="newStudentImage" placeholder="Student Image URL" />
         <input v-model="newStudentTeacher" type="number" placeholder="Teacher ID" />
-        <button class="button-19" type="submit" :disabled="!isFormValid">Add Student</button>
+        <button class="button-19" id="button-19-student" type="submit" :disabled="!isFormValid">Add Student</button>
       </form>
     </div>
     <div v-if="selectedForm === 'teacher'" class="form-section">
@@ -180,7 +180,9 @@ input {
   border-radius: 5px;
 }
 
-
+#button-19-student{
+  margin-left: 160px;
+}
   .button-19 {
     appearance: button;
   background-color: #1899D6;

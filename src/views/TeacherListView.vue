@@ -84,19 +84,20 @@ const hasNextPage = computed(() => {
 </script>
 <style>
 .card-row {
-  display: flex;
-  justify-content: space-between;
+  margin-top: 20px;
+  align-items: center;
   width: 100%;
-  margin-bottom: 20px; /* Adjust spacing between rows */
-  margin: 20px;
+  margin-left: 60px;
 }
 .student {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 .card-row .student {
   width: 10%; /* Adjust card width */
+  
 }
 .pagination {
   display: flex;
@@ -127,9 +128,14 @@ form {
   text-align: left;
 }
 
-@media (min-width: 768px) {
-  .button-52 {
-    padding: 8px 15px 8px;
-  }
+@media (min-width: 1024px) {
+  .card-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px; /* Adjust spacing between rows */
+  margin: 20px;
+}
+
 }
 </style>

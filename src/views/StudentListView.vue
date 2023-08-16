@@ -113,9 +113,7 @@ onBeforeRouteLeave((to, from, next) => {
 </script>
 
 <style scoped>
-.change-page{
-  
-}
+
 .pagination{
   width: 550px;
 }
@@ -130,7 +128,7 @@ onBeforeRouteLeave((to, from, next) => {
 }
 
 .card-row {
-  display: flex;
+  margin-right: 40px;
   justify-content: space-between;
   width: 100%;
   margin-bottom: 20px; /* Adjust spacing between rows */
@@ -140,29 +138,14 @@ onBeforeRouteLeave((to, from, next) => {
   width: 48%; /* Adjust card width */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .card-row .student {
     width: 100%;
   }
+  .pagination{
+  width: 450px;
+}
 }
 
-input {
-  height: 40px;
-  padding: 20px;
-  margin-left: 70px;
-  margin-bottom: 10px;
-}
-form {
-  display: inline-block;
-  width: 400px;
-  cursor: pointer;
-  text-align: left;
-  align-items: center;
-}
 
-@media (min-width: 768px) {
-  .button-52 {
-    padding: 8px 15px 8px;
-  }
-}
 </style>

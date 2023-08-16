@@ -114,7 +114,7 @@
   -webkit-user-select: none;
   white-space: nowrap;
   /* width: 40%; */
-  margin-left: 2px;
+  margin-left: 280px;
   height: 40px;
 }
 
@@ -151,7 +151,7 @@ input {
   border: 3px solid #1899D6;
   margin-top: 20px;
   padding: 10px;
-  width: 100%;
+  width: 95%;
   box-sizing: border-box;
 }
 
@@ -172,7 +172,17 @@ label {
 }
 
 /* Add more styles as needed */
+@media (min-width: 1024px) {
+  input {
 
+  width: 100%;
+
+}
+.button-19 {
+  margin-left: 300px;
+}
+
+}
+</style>
   
 
-</style>

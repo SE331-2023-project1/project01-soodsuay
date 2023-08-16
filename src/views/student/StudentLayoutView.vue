@@ -62,6 +62,7 @@ const router = useRouter()
     border-radius: 20px;
     margin-bottom: 10px;
     color: #474747;
+
 }
 
 .nav-links {
@@ -69,6 +70,7 @@ const router = useRouter()
     text-align: center;
     font-family: 'Bellota Text', cursive;
     font-weight: bold;
+    
 }
 
 .nav-links a {
