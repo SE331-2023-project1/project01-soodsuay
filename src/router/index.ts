@@ -14,6 +14,7 @@ import { useStudentStore } from '@/stores/student';
 import { useStudentAllStore } from '@/stores/all_student';
 import type { commmentInfo } from '@/comment'
 import { ref } from 'vue'
+import NProgress from 'nprogress'
 
 import 'animate.css'
 
@@ -93,5 +94,11 @@ const router = createRouter({
     }
   ]
 })
+router.beforeEach(()=>{
+  NProgress.start()
+})
 
+router.afterEach(()=>{
+  NProgress.done()
+})
 export default router

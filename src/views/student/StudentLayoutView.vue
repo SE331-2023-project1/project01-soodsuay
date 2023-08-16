@@ -8,7 +8,6 @@ import { storeToRefs } from 'pinia';
 import { useStudentStore } from '@/stores/student';
 import { useStudentAllStore } from '@/stores/all_student';
 
-
 const props = defineProps({
     id: {
         type: String,
@@ -25,6 +24,7 @@ const keep = student_all.value[keep_id-1]
 console.log(keep)
 StudentStore.setStudent(keep)
 const router = useRouter()
+
 // StudentsInfoServices.getStudentById(Number(props.id)).then((response) => {
 //         student.value = response.data
 

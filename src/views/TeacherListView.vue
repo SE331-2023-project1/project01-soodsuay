@@ -46,10 +46,17 @@
 <script lang="ts" setup>
 import TeacherCard from '../components/TeacherCard.vue'
 import type { TeacherInfo } from '@/teacher'
+import type { AxiosResponse } from 'axios';
 import TeacherService from '@/services/TeacherService'
 import { ref, computed, type Ref, onMounted } from 'vue'
 import { useTeacherAllStore } from '@/stores/all_teacher'
 import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
+import { onBeforeRouteUpdate } from 'vue-router'
+import NProgress from 'nprogress'
+const router = useRouter
+const teachers: Ref<TeacherInfo[]> = ref([])
+const totalTeacher = ref<number>(0)
 const teacherStoreAll = useTeacherAllStore()
 const { teacher_all } = storeToRefs<typeof teacherStoreAll>(teacherStoreAll)
 //   const teachers: Ref<Array<TeacherInfo>> = ref([]);
@@ -81,6 +88,29 @@ const hasNextPage = computed(() => {
   console.log('teacher'+totalPages)
   return props.page < totalPages;
 });
+NProgress
+TeacherService.getTeacher().then((response: AxiosResponse<TeacherInfo[]>) => {
+  teachers.value = response.data
+  totalTeacher.value = response.headers['x-total-count']
+}).catch(() => {
+  router().push({ name: 'NetworkError' });
+// }).finally(() => {
+//   NProgress.done()
+})
+onBeforeRouteUpdate((to, from, next) => {
+  const toPage = Number(to.query.page)
+  // NProgress.start()
+  TeacherService.getTeacher().then((response: AxiosResponse<TeacherInfo[]>) => {
+    teachers.value = response.data
+    totalTeacher.value = response.headers['x-total-count']
+  next()
+  }).catch(() => {
+    next({ name: 'NetworkError' })
+  // }).finally(() => {
+  //   NProgress.done()
+  })
+})
+
 </script>
 <style>
 .card-row {

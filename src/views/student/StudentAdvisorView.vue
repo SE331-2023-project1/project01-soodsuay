@@ -38,10 +38,10 @@ console.log(teacher);
     <img :src="teacher.teacher_img" class="image" />
     <br>
     <h1> {{ teacher.teacher_name }} {{ teacher.teacher_surname }} </h1>
-    <h3 class="id"> Teacher ID: {{ teacher.id }}</h3>
-    <h3 class="position"> Position: {{ teacher.position }}</h3>
-    <h3 class="education">Education: {{ teacher.education }}</h3>
-    <h3 class="email">Email: {{ teacher.email }}</h3>
+    <h3 class="id">Teacher ID: {{ teacher.id }}</h3>
+        <h3 class="position">Position: {{ teacher.position }}</h3>
+        <h3 class="education">Education ♕ {{ teacher.education }}</h3>
+        <h3 class="email">Email ☏ {{ teacher.email }}</h3>
   </div>
 </div>
 </template>

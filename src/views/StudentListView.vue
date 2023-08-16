@@ -67,17 +67,21 @@
 import StudentCard from '../components/StudentCard.vue'
 import type { studentInfo } from '@/student'
 import { ref, computed, type Ref, onMounted } from 'vue'
+import type { AxiosResponse } from 'axios';
 import { useRouter } from 'vue-router'
+import NProgress from 'nprogress'
 import { onBeforeRouteLeave } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useStudentAllStore } from '@/stores/all_student'
 import isFormValid from '@/views/AboutView.vue'
 import addStudent from '@/views/AboutView.vue'
+import StudentsInfoServices from '@/services/StudentsInfoServices'
+import { onBeforeRouteUpdate } from 'vue-router'
 const studentStore_all = useStudentAllStore()
 const { student_all } = storeToRefs(studentStore_all)
 const students: Ref<studentInfo[]> = ref([])
 const totalStudent = ref<number>(0)
-
+const router = useRouter
 const props = defineProps({
   page: {
     type: Number,
@@ -108,6 +112,28 @@ onBeforeRouteLeave((to, from, next) => {
     new addStudent()
   }
   next()
+})
+NProgress
+StudentsInfoServices.getStudent().then((response: AxiosResponse<studentInfo[]>) => {
+  students.value = response.data
+  totalStudent.value = response.headers['x-total-count']
+}).catch(() => {
+  router().push({ name: 'NetworkError' });
+// }).finally(() => {
+//   NProgress.done()
+})
+onBeforeRouteUpdate((to, from, next) => {
+  const toPage = Number(to.query.page)
+  // NProgress.start()
+  StudentsInfoServices.getStudent().then((response: AxiosResponse<studentInfo[]>) => {
+    students.value = response.data
+    totalStudent.value = response.headers['x-total-count']
+  next()
+  }).catch(() => {
+    next({ name: 'NetworkError' })
+  // }).finally(() => {
+  //   NProgress.done()
+  })
 })
 
 </script>
