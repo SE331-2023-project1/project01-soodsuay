@@ -1,7 +1,7 @@
 <template>
-  <main class="flex flex-col items-center">
-    <div class="card-container">
-      <div class="card-row">
+<main class="flex flex-col items-center">
+    <div class="flex flex-col items-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <StudentCard
           class="student"
           v-for="student in displayedStudentsEven"
@@ -9,7 +9,7 @@
           :student="student"
         ></StudentCard>
       </div>
-      <div class="card-row">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <StudentCard
           class="student"
           v-for="student in displayedStudentsOdd"
@@ -20,7 +20,6 @@
     </div>
     <div class="w-500 pagination mt-10 justify-center">
     <div class="change-page">
-
     </div>
   <RouterLink
     :to="{ name: 'studentlist', query: { page: page - 1 } }"
@@ -36,7 +35,7 @@
     border-radius: 25px;
     text-decoration: none;
     transition: background-color 0.3s, color 0.3s;"
-    class="flex items-center text-center"
+    class="flex items-left text-left"
   >Prev Page</RouterLink>
   
   <RouterLink
@@ -52,8 +51,7 @@
     padding: 10px 20px;
     border-radius: 25px;
     transition: background-color 0.3s, color 0.3s;"
-
-    class="flex items-center text-center"
+    class="flex items-right text-right"
   >Next Page</RouterLink>
 
 </div>
@@ -145,19 +143,6 @@ onBeforeRouteUpdate((to, from, next) => {
 }
 .student {
   font-family: 'Poiret One', cursive;
-}
-
-.card-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.card-row {
-  margin-right: 40px;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 20px; /* Adjust spacing between rows */
 }
 
 .card-row .student {

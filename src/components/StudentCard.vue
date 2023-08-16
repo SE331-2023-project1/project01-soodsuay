@@ -10,7 +10,7 @@
           <div class="student-card">
             <h2>{{ props.student?.name }}</h2>
             <h2>{{ props.student?.surname }} </h2>
-            <img :src="student.image" class="image" />
+            <img :src="student.image" class="items-center rounded-lg" />
           </div>
         </div>
       </div>
@@ -54,11 +54,11 @@ const props = defineProps({
 
 }
 
-.image {
-  width: 140px;
+/* .image { */
+  /* width: 140px;
   height: 180px;
   border-radius: 2%;
-}
+} */
 
 .student-card:hover {
   transform: scale(1.01);

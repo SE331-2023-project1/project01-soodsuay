@@ -1,9 +1,9 @@
 <template>
-  <div class="student">
-    <div class="card-row">
+  <div class="flex flex-col items-center">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <TeacherCard v-for="teacher in displayedStudentsEven" :key="teacher.id" :teacher="teacher"></TeacherCard>
     </div>
-    <div class="card-row">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <TeacherCard v-for="teacher in displayedStudentsOdd" :key="teacher.id" :teacher="teacher"></TeacherCard>
       </div>
       <div class="w-500 pagination mt-10 justify-center">
@@ -21,7 +21,7 @@
     border-radius: 25px;
     text-decoration: none;
     transition: background-color 0.3s, color 0.3s;"
-    class="flex items-center text-center"
+    class="flex items-left text-left"
   >Prev Page</RouterLink>
   
   <RouterLink
@@ -38,7 +38,7 @@
     border-radius: 25px;
     transition: background-color 0.3s, color 0.3s;"
 
-    class="flex items-center text-center"
+    class="flex items-right text-right"
   >Next Page</RouterLink>
   </div>
   </div>
@@ -113,18 +113,8 @@ onBeforeRouteUpdate((to, from, next) => {
 
 </script>
 <style>
-.card-row {
-  margin-top: 20px;
-  align-items: center;
-  width: 100%;
-  margin-left: 60px;
-}
-.student {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-}
+
+
 .card-row .student {
   width: 10%; /* Adjust card width */
   
@@ -138,25 +128,6 @@ onBeforeRouteUpdate((to, from, next) => {
   text-decoration: none;
   color: #2c3e50;
 }
-#page-prev {
-  text-align: left;
-}
-#page-next {
-  text-align: right;
-}
-
-input {
-  height: 40px;
-  padding: 20px;
-  margin-left: auto;
-  margin-bottom: 10px;
-}
-form {
-  display: inline-block;
-  width: 400px;
-  cursor: pointer;
-  text-align: left;
-}
 
 @media (min-width: 1024px) {
   .card-row {
@@ -166,6 +137,5 @@ form {
   margin-bottom: 20px; /* Adjust spacing between rows */
   margin: 20px;
 }
-
 }
 </style>

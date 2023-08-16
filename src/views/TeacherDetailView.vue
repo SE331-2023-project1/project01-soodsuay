@@ -30,12 +30,12 @@ console.log(teacher)
     <br>
     <div v-if="teacher">
       <div class="image-container">
-        <img :src="teacher?.teacher_img" class="image" ><br>
-        <h1>{{ teacher.teacher_name }} {{ teacher.teacher_surname }}</h1>
-        <h3 class="id">Teacher ID: {{ teacher.id }}</h3>
-        <h3 class="position">Position: {{ teacher.position }}</h3>
-        <h3 class="education">Education ♕ {{ teacher.education }}</h3>
-        <h3 class="email">Email ☏ {{ teacher.email }}</h3>
+        <img :src="teacher?.teacher_img" class="items-center rounded-3xl" ><br>
+        <h1 class="mt-15 text-gray-800 text-3xl font-bold" >{{ teacher.teacher_name }} {{ teacher.teacher_surname }}</h1>
+        <h3 class="text-xl text-gray-500">Teacher ID: {{ teacher.id }}</h3>
+        <h3 class="text-xl text-gray-400">Position: {{ teacher.position }}</h3>
+        <h3 class="text-xl text-gray-400">Education ♕ {{ teacher.education }}</h3>
+        <h3 class="text-xl text-gray-400">Email ☏ {{ teacher.email }}</h3>
       </div>
 
     </div>
@@ -43,21 +43,14 @@ console.log(teacher)
 </header>
 </template>
 <style scoped>
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 .box-teacher {
   background-color: white;
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  width: 80%; /* Increase width */
+  width: 80%; 
   max-width: 600px;
-  margin: 0 auto; /* Center the box horizontally */
+  margin: 0 auto; 
   text-align: center;
 }
 
@@ -66,45 +59,23 @@ header {
   margin-bottom: 20px;
 }
 
-.image {
-  width: 220px;
+/* .image { */
+  /* width: 220px;
   height: 240px;
   border-radius: 50%;
   border: 4px solid rgb(102, 140, 255);
-}
+} */
 
-.teacher-details {
-  font-family: 'Rubik', sans-serif;
-}
+/* .teacher-details { */
+  /* font-family: 'Rubik', sans-serif;
+} */
 
-h1 {
-  font-size: 1.8rem; /* Increase font size */
+/* h1 { */
+  /* font-size: 1.8rem; 
   font-weight: bold;
   margin-top: 15px;
   color: #333;
-}
-
-.position {
-  font-size: 1.2rem; /* Increase font size */
-  margin-top: 10px;
-  color: #777;
-}
-
-.education, .email {
-  font-size: 1rem; /* Increase font size */
-  margin-top: 5px;
-  color: #555;
-}
-.id{
-  font-size: 1.2rem; /* Increase font size */
-  margin-top: 7px;
-  color: #777;
-}
-
+} */
 @media (min-width: 768px) {
-  .image {
-    width: 250px; /* Increase width */
-    height: 270px; /* Increase height */
-  }
 }
 </style>

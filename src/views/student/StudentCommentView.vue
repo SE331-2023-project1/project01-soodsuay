@@ -2,14 +2,14 @@
     <div class="box-comment" >
       <div clss="commentform">
         <form @submit.prevent="addComment">
-          <label for="name">Comment:</label>
-          <input v-model="comment_input" type="text" id="name" required>
+          <label class="font-bold" for="name">Comment</label>
+          <input class="border-2 rounded-2xl border-blue-300 mt-5 p-2" v-model="comment_input" type="text" id="name" required>
           <button class="button-19" type="submit">Add Comment</button>
         </form>
       </div>
       <div v-for="(commentItem, index) in keepCommt_id" :key="index">
         <p class="comment-item">
-        <strong>Comment Number {{ index + 1 }} :</strong> {{ commentItem.comment }}
+        <strong class="font-bold">Comment Number {{ index + 1 }} :</strong> {{ commentItem.comment }}
       </p>      
     </div>
     </div>
@@ -79,16 +79,10 @@
   margin-bottom: 20px;
   padding: 20px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  
 }
-
-.comment-form {
-  margin-bottom: 20px;
-}
-
-
 
   .button-19 {
+    margin-top: 10px;
     width: 100px;
   appearance: button;
   background-color: #1899D6;
@@ -147,16 +141,12 @@
   cursor: auto;
 }
 input {
-  border-radius: 15px;
+  /* border-radius: 15px;
   border: 3px solid #1899D6;
   margin-top: 20px;
-  padding: 10px;
+  padding: 10px; */
   width: 95%;
-  box-sizing: border-box;
-}
-
-label {
-  font-weight: bold;
+  /* box-sizing: border-box; */
 }
 
 .comment-item {
@@ -167,9 +157,7 @@ label {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.comment-item strong {
-  font-weight: bold;
-}
+
 
 /* Add more styles as needed */
 @media (min-width: 1024px) {
@@ -179,7 +167,7 @@ label {
 
 }
 .button-19 {
-  margin-left: 300px;
+  margin-left: 460px;
 }
 
 }

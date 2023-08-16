@@ -40,7 +40,7 @@ const router = useRouter()
 <template>
     <link href="https://fonts.googleapis.com/css2?family=Bellota+Text:wght@700&family=Caveat:wght@600&family=Noto+Sans+SC:wght@700&family=Oxygen&family=Plus+Jakarta+Sans:wght@300&family=Racing+Sans+One&family=Raleway:wght@100;200;700&family=Roboto+Slab:wght@500;700&family=Rowdies:wght@300&family=Rubik:wght@500&display=swap" rel="stylesheet">
     <div v-if="student">
-        <div class="nav-container">
+        <div class="flex justify-center mt-10 border-3 border-blue-400 bg-yellow-300 border-2 rounded-2xl mb-10 text-gray-700" id="nav-container">
             <nav class="nav-links">
             <router-link :to="{name: 'student-detail', params:{id}}">Student Details</router-link> | 
             <router-link :to="{name: 'student-advisor', params:{id}}">Teacher</router-link> |
@@ -54,16 +54,6 @@ const router = useRouter()
 </template>
 
 <style>
-.nav-container {
-    display: flex;
-    justify-content: center;
-    border: 3px solid rgb(102, 140, 255);
-    background-color: rgb(255, 238, 48);
-    border-radius: 20px;
-    margin-bottom: 10px;
-    color: #474747;
-
-}
 
 .nav-links {
     font-size: 17px;
@@ -81,4 +71,5 @@ nav a.router-link-exact-active {
     color: red;
     align-items: center;
 }
+
 </style>

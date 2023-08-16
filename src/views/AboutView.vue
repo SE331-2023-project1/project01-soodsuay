@@ -8,7 +8,7 @@
     </select>
   </div>
     <div v-if="selectedForm === 'student'" class="form-section">
-      <h1>Add new student form</h1>
+      <h1 class="font-bold text-3xl">Add new student form</h1>
       <form @submit.prevent="addStudent">
         <input v-model="newStudentName" placeholder="Student Name" />
         <input v-model="newStudentSurname" placeholder="Student Surname" />
@@ -21,7 +21,7 @@
     </div>
     <div v-if="selectedForm === 'teacher'" class="form-section">
       <div class="from">
-        <h1>Add new teacher form</h1>
+        <h1 class="font-bold text-3xl">Add new teacher form</h1>
     <form @submit.prevent="addTeacher">
       <input class="teachername" v-model="newTeacherName" placeholder="Teacher Name" />
       <input class="teachersurname" v-model="newTeacherSurname" placeholder="Teacher Surname" />
@@ -245,7 +245,6 @@ input {
 }
 h1 {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: bold;
 }
 
 @media (min-width: 1024px) {
@@ -256,7 +255,7 @@ h1 {
     width: 100%;
   }
   #button-19-student{
-    margin-left: 240px;
+    margin-left: 310px;
   }
 }
 
