@@ -13,6 +13,7 @@ const props = defineProps({
   <div v-if="props.student">
     <img :src="props.student?.image" class="items-center rounded-3xl border-8 border-blue-300" />
     <h1 class="mt-15 text-gray-800 text-xl font-bold">{{ props.student?.name }} {{ props.student?.surname }}</h1>
+    <h2 class="mt-15 text-gray-800 text-base text-left">Student ID : {{ props.student?.student_id }}</h2>
     <h2 class="mt-15 text-gray-800 text-base text-left">Nickname : {{ props.student?.nickname }}</h2>
     <h2 class="mt-15 text-gray-800 text-base text-left" v-if="props.student?.course_list.length>0">Courses :</h2>
     <h2  class="mt-15 text-gray-800 text-base text-left" v-for="course in props.student?.course_list" :key="course.course_id">
