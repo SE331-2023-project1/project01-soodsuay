@@ -4,7 +4,7 @@
 
 | STUDENT ID | NAME | GITHUB |
 
-642115012 | Yada Lakhonjun | [yadalaa](https://github.com/yadalaa) |
+642115012 | Yada Lakhonjun | [yadalaa](https://github.com/yadalaa) | </br>
 642115015 | Nichakamol Sanghong | [minqnich](https://github.com/minqnich) |
 
 
